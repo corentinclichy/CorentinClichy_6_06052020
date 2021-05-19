@@ -9,12 +9,12 @@ h4,
 h5,
 h6 {
   @include typo-primary;
-  font-weight: bold;
 }
 
-h1,
-h2 {
-  font-size: 1.5rem;
+h1 {
+  font-size: 18px;
+  font-weight: 400;
+  color: #901c1c;
 }
 
 h4 {
