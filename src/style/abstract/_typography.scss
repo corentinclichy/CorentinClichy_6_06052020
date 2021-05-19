@@ -1,7 +1,6 @@
-@mixin roboto {
-  font-family: "Roboto", sans-serif;
-}
+//DMSans
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
 
-@mixin shrikhand {
-  font-family: "Shrikhand", cursive;
+@mixin typo-primary {
+  font-family: "DM Sans", sans-serif;
 }
