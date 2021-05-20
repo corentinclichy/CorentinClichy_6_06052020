@@ -319,7 +319,7 @@ header .tags .row {
 }
 
 .contact-btn--desktop {
-  margin-left: 20%;
+  margin-left: 10%;
   display: none;
 }
 @media (min-width: 1024px) {
@@ -329,7 +329,7 @@ header .tags .row {
 }
 
 .photograher__price {
-  display: flex;
+  display: none;
   padding: 1rem;
   background: #db8876;
   width: fit-content;
@@ -338,6 +338,11 @@ header .tags .row {
   right: 2%;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+}
+@media (min-width: 768px) {
+  .photograher__price {
+    display: flex;
+  }
 }
 .photograher__price .photograher__price__total-likes {
   margin-right: 30px;

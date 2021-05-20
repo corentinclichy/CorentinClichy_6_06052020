@@ -1,5 +1,5 @@
 .photograher__price {
-  display: flex;
+  display: none;
   padding: 1rem;
   background: #db8876;
   width: fit-content;
@@ -9,6 +9,10 @@
 
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+
+  @include size("md") {
+    display: flex;
+  }
 
   .photograher__price__total-likes {
     margin-right: 30px;
