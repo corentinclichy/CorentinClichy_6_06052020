@@ -297,11 +297,30 @@ header .tags .row {
   color: white;
   padding: 7px 19px;
   border-radius: 5px;
+  font-weight: 700;
+}
+
+.contact-btn--mobile {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
   bottom: 30px;
   z-index: 1000;
+}
+@media (min-width: 768px) {
+  .contact-btn--mobile {
+    display: none;
+  }
+}
+
+.contact-btn--desktop {
+  margin-left: 150px;
+  display: none;
+}
+@media (min-width: 768px) {
+  .contact-btn--desktop {
+    display: block;
+  }
 }
 
 .cards-container {
@@ -322,7 +341,10 @@ header .tags .row {
   flex-direction: column;
   justify-content: space-between;
 }
-.photographer-infos .panel-left h1 {
+.photographer-infos .panel-left .wrap {
+  display: flex;
+}
+.photographer-infos .panel-left .wrap h1 {
   color: #d3573c;
   font-size: 36px;
 }
