@@ -166,7 +166,7 @@ a {
 header {
   width: 92%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: auto, 1fr, auto;
   grid-template-rows: repeat(2, 1fr);
   align-items: center;
   grid-row-gap: 30px;
@@ -185,6 +185,7 @@ header .header__logo img {
 }
 header h1 {
   grid-area: 1/3/2/4;
+  justify-self: flex-end;
 }
 header .tags {
   grid-area: 2/1/3/4;
@@ -196,6 +197,17 @@ header .tags {
 header .tags .row {
   display: flex;
   gap: 5px;
+}
+@media (min-width: 1024px) {
+  header .header__logo {
+    grid-area: 0/1/1/2;
+  }
+  header .tags {
+    grid-area: 1/2/2/3;
+  }
+  header h1 {
+    grid-area: 1/3/2/4;
+  }
 }
 
 .tag {
