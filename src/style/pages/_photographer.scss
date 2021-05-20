@@ -79,7 +79,7 @@
 .showcase {
   width: 92%;
   margin: auto;
-  margin-top: 50px;
+  margin: 50px auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   row-gap: 20px;
