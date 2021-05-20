@@ -229,7 +229,6 @@ header .tags .row {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
   line-height: 1.5;
 }
 .cards-container__card-photographer a {
@@ -274,11 +273,101 @@ header .tags .row {
   margin: 10px 0;
 }
 
+.showcase__photo-card .photo-card__img {
+  width: 100%;
+  height: 45vh;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.showcase__photo-card .photo-card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.showcase__photo-card .photo-card__infos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  color: #901c1c;
+}
+
+.contact-btn {
+  background-color: #901c1c;
+  color: white;
+  padding: 7px 19px;
+  border-radius: 5px;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 30px;
+  z-index: 1000;
+}
+
 .cards-container {
+  display: grid;
+  margin-top: 50px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  row-gap: 30px;
+}
+
+.photographer-infos {
+  width: 92%;
+  margin: auto;
+  display: flex;
+}
+.photographer-infos .panel-left {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  justify-content: space-between;
+}
+.photographer-infos .panel-left h1 {
+  color: #d3573c;
+  font-size: 36px;
+}
+.photographer-infos .panel-left .card-photographer__location {
+  font-size: 16px;
+  color: #901c1c;
+  font-weight: 400;
+  margin-top: 5px;
+}
+.photographer-infos .panel-left .card-photographer__description {
+  font-size: 16px;
+  color: black;
+  font-weight: 400;
+  margin-top: 5px;
+}
+.photographer-infos .panel-left .card-photographer__tags {
+  display: flex;
+  gap: 5px;
+}
+.photographer-infos .right-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.photographer-infos .right-panel .card-photographer__img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.photographer-infos .right-panel .card-photographer__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.showcase {
+  width: 92%;
+  margin: auto;
   margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  row-gap: 20px;
+  column-gap: 95px;
+  position: relative;
 }
 
 /*# sourceMappingURL=main.css.map */

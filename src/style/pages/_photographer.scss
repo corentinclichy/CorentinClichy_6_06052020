@@ -1,0 +1,62 @@
+.photographer-infos {
+  width: 92%;
+  margin: auto;
+  display: flex;
+
+  .panel-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    h1 {
+      color: $secondary;
+      font-size: 36px;
+    }
+    .card-photographer__location {
+      font-size: 16px;
+      color: $primary;
+      font-weight: 400;
+      margin-top: 5px;
+    }
+    .card-photographer__description {
+      font-size: 16px;
+      color: black;
+      font-weight: 400;
+      margin-top: 5px;
+    }
+    .card-photographer__tags {
+      display: flex;
+      gap: 5px;
+    }
+  }
+
+  .right-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .card-photographer__img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+.showcase {
+  width: 92%;
+  margin: auto;
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  row-gap: 20px;
+  column-gap: 95px;
+  position: relative;
+}

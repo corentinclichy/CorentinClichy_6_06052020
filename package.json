@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "sass": "sass --watch src/style/main.scss:public/style/main.css",
-    "lint":"eslint"
+    "lint": "eslint"
   },
   "author": "",
   "license": "ISC",
@@ -13,5 +13,8 @@
     "eslint": "^7.26.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.23.2"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3"
   }
 }

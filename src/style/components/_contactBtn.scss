@@ -1,0 +1,12 @@
+.contact-btn {
+  background-color: $primary;
+  color: white;
+  padding: 7px 19px;
+  border-radius: 5px;
+
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 30px;
+  z-index: 1000;
+}
