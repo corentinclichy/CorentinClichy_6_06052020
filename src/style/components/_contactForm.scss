@@ -1,0 +1,91 @@
+.contact {
+  height: 100vh;
+  background-color: rgba(196, 196, 196, 0.4);
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: black;
+  font-size: 25px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  .contact__wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    background-color: #db8876;
+    @include size("md") {
+      max-width: 60%;
+      height: 80%;
+      border-radius: 5px;
+    }
+    @include size("lg") {
+      max-width: 40%;
+    }
+    h1 {
+      font-size: 45px;
+      color: black;
+    }
+
+    .contact__form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      flex: 1;
+      margin: auto;
+      margin-top: 30px;
+      label {
+        font-size: 24px;
+        color: #2c1919;
+        align-self: start;
+      }
+
+      input,
+      textarea {
+        border: none;
+        padding: 15px 3px;
+        border-radius: 5px;
+        margin: 5px 0 10px 0;
+        width: 100%;
+
+        &:focus {
+          outline: none;
+        }
+      }
+      textarea {
+        resize: none;
+        width: 100%;
+        height: 30vh;
+        @include size("md") {
+          height: 15vh;
+        }
+      }
+
+      input[type="submit"] {
+        width: 50%;
+        background-color: $primary;
+        color: white;
+        font-size: 18px;
+        font-weight: 700;
+      }
+    }
+
+    .fa-times {
+      position: absolute;
+      top: 10;
+      right: 10px;
+      width: 32px;
+      height: 32px;
+      color: white;
+      cursor: pointer;
+    }
+  }
+}

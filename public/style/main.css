@@ -355,6 +355,7 @@ header .tags .row {
   z-index: 2;
   display: flex;
   align-items: center;
+  display: none;
 }
 .lightbox .lightbox__wrapper {
   width: 92%;
@@ -394,6 +395,100 @@ header .tags .row {
   cursor: pointer;
 }
 .lightbox .lightbox__wrapper .lightbox__arrow-left .fa-chevron-left {
+  cursor: pointer;
+}
+
+.contact {
+  height: 100vh;
+  background-color: rgba(196, 196, 196, 0.4);
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: black;
+  font-size: 25px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+.contact .contact__wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background-color: #db8876;
+}
+@media (min-width: 768px) {
+  .contact .contact__wrapper {
+    max-width: 60%;
+    height: 80%;
+    border-radius: 5px;
+  }
+}
+@media (min-width: 1024px) {
+  .contact .contact__wrapper {
+    max-width: 40%;
+  }
+}
+.contact .contact__wrapper h1 {
+  font-size: 45px;
+  color: black;
+}
+.contact .contact__wrapper .contact__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  flex: 1;
+  margin: auto;
+  margin-top: 30px;
+}
+.contact .contact__wrapper .contact__form label {
+  font-size: 24px;
+  color: #2c1919;
+  align-self: start;
+}
+.contact .contact__wrapper .contact__form input,
+.contact .contact__wrapper .contact__form textarea {
+  border: none;
+  padding: 15px 3px;
+  border-radius: 5px;
+  margin: 5px 0 10px 0;
+  width: 100%;
+}
+.contact .contact__wrapper .contact__form input:focus,
+.contact .contact__wrapper .contact__form textarea:focus {
+  outline: none;
+}
+.contact .contact__wrapper .contact__form textarea {
+  resize: none;
+  width: 100%;
+  height: 30vh;
+}
+@media (min-width: 768px) {
+  .contact .contact__wrapper .contact__form textarea {
+    height: 15vh;
+  }
+}
+.contact .contact__wrapper .contact__form input[type=submit] {
+  width: 50%;
+  background-color: #901c1c;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+}
+.contact .contact__wrapper .fa-times {
+  position: absolute;
+  top: 10;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  color: white;
   cursor: pointer;
 }
 
