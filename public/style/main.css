@@ -360,18 +360,18 @@ header .tags .row {
   width: 92%;
   margin: auto;
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: auto minmax(min-content, 500px) auto;
   align-items: center;
   justify-content: center;
   gap: 20px;
 }
 .lightbox .lightbox__wrapper .lightbox__content__img {
-  width: 100%;
-  overflow: hidden;
+  max-height: 100%;
+  max-width: 100%;
 }
 .lightbox .lightbox__wrapper .lightbox__content__img img {
-  height: 100%;
   width: 100%;
+  max-height: 100%;
   object-fit: contain;
 }
 .lightbox .lightbox__wrapper .img__infos {
@@ -388,6 +388,13 @@ header .tags .row {
   position: absolute;
   align-self: center;
   top: 0;
+  cursor: pointer;
+}
+.lightbox .lightbox__wrapper .lightbox__arrow-right .fa-chevron-right {
+  cursor: pointer;
+}
+.lightbox .lightbox__wrapper .lightbox__arrow-left .fa-chevron-left {
+  cursor: pointer;
 }
 
 .cards-container {
