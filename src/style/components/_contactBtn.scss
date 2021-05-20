@@ -12,15 +12,15 @@
   transform: translateX(-50%);
   bottom: 30px;
   z-index: 1000;
-  @include size("md") {
+  @include size("lg") {
     display: none;
   }
 }
 
 .contact-btn--desktop {
-  margin-left: 150px;
+  margin-left: 20%;
   display: none;
-  @include size("md") {
+  @include size("lg") {
     display: block;
   }
 }

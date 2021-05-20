@@ -1,0 +1,16 @@
+.photograher__price {
+  display: flex;
+  padding: 1rem;
+  background: #db8876;
+  width: fit-content;
+  position: fixed;
+  bottom: 0;
+  right: 2%;
+
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+
+  .photograher__price__total-likes {
+    margin-right: 30px;
+  }
+}

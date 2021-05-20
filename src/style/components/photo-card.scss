@@ -1,9 +1,12 @@
 .showcase__photo-card {
   .photo-card__img {
     width: 100%;
-    height: 45vh;
+    height: 30vh;
     border-radius: 5px;
     overflow: hidden;
+    @include size("md") {
+      height: 45vh;
+    }
     img {
       width: 100%;
       height: 100%;
