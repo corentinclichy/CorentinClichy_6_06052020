@@ -218,10 +218,20 @@ header .tags .row {
   padding: 4px;
   transition: all 0.25s ease-in-out;
 }
+.tag a {
+  pointer-events: none;
+}
 .tag:hover {
   background-color: #901c1c;
 }
 .tag:hover a {
+  color: white;
+}
+
+.active {
+  background-color: #901c1c;
+}
+.active a {
   color: white;
 }
 

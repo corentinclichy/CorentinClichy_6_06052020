@@ -1,48 +1,16 @@
 import fetchData from "./modules/fetchingData.js";
+import photographerCardMarkup from "./modules/photographerCardMarkup.js";
 
-const photographerCard = (
-  name,
-  city,
-  country,
-  tagline,
-  price,
-  tags,
-  image_url
-) => {
-  return `
-    <div class="cards-container__card-photographer">
-        <a href="#" class="card-photographer__link">
-          <figure class="card-photographer__img">
-            <img src="../public/assets/Images/Photographers/${image_url}" alt="" />
-          </figure>
-          <h2>${name}</h2>
-        </a>
-        <p class="card-photographer__location">${city}, ${country}</p>
-        <p class="card-photographer__description">
-          ${tagline}
-        </p>
-        <p class="card-photographer__price">${price}€/j</p>
-        <div class="card-photographer__tags">
-        ${tags
-          .map((tag) => {
-            return `<div class="tag">
-              <a href="#">#${tag}</a>
-            </div>`;
-          })
-          .join("")}
-        </div>
-      </div>
-`;
-};
+//Selectors:
+const tags = document.querySelectorAll(".tag");
+const photographersContainer = document.querySelector(".cards-container");
 
-fetchData().then((data) => {
-  const photographers = data.photographers;
-
+//Show Photographer
+const showPhotographer = (photographers) => {
+  photographersContainer.innerHTML = "";
   photographers.map(
     ({ name, city, country, tagline, price, tags, portrait }) => {
-      console.log(tags);
-
-      const photographerList = photographerCard(
+      const photographerList = photographerCardMarkup(
         name,
         city,
         country,
@@ -51,10 +19,46 @@ fetchData().then((data) => {
         tags,
         portrait
       );
-
-      console.log(photographerList);
-
-      document.querySelector(".cards-container").innerHTML += photographerList;
+      photographersContainer.innerHTML += photographerList;
     }
   );
+};
+
+// SHOW ALL
+window.onload = fetchData().then(({ photographers }) => {
+  showPhotographer(photographers);
 });
+
+// FILTER FUNCTIONNALITY
+
+//Event Listener
+tags.forEach((tag) => {
+  tag.addEventListener("click", (e) => {
+    handleActive(e);
+    // Get the tag name to filter
+    const tagNameBrut = e.target.innerText;
+    // process the innerText to delete the # and to lowercase the string to match what we have in the db
+    const tagName = tagNameBrut.substr(1, tagNameBrut.length - 1).toLowerCase();
+    showFilter(tagName);
+  });
+});
+
+const handleActive = (e) => {
+  tags.forEach((tag) => {
+    tag.classList.remove("active");
+  });
+  e.target.classList.add("active");
+};
+
+const showFilter = (category) => {
+  fetchData().then(({ photographers }) => {
+    let filterdPhotographer = [];
+
+    photographers.map((photographer) => {
+      if (photographer.tags.includes(category)) {
+        filterdPhotographer = [...filterdPhotographer, photographer];
+      }
+    });
+    showPhotographer(filterdPhotographer);
+  });
+};
