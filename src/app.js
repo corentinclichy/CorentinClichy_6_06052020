@@ -3,6 +3,7 @@ import photographerCardMarkup from "./modules/photographerCardMarkup.js";
 
 //Selectors:
 const tags = document.querySelectorAll(".tag");
+const logo = document.querySelector(".header__logo");
 const photographersContainer = document.querySelector(".cards-container");
 
 //Show Photographer
@@ -24,16 +25,23 @@ const showPhotographer = (photographers) => {
   );
 };
 
-// SHOW ALL
-window.onload = fetchData().then(({ photographers }) => {
-  showPhotographer(photographers);
-});
+// SHOW ALL ON WINDOW Load
+window.onload = () => {
+  showAll();
+};
 
 // FILTER FUNCTIONNALITY
 
 //Event Listener
+
+logo.addEventListener("click", (e) => {
+  showAll();
+  handleActive(e);
+});
+
 tags.forEach((tag) => {
   tag.addEventListener("click", (e) => {
+    console.log(e);
     handleActive(e);
     // Get the tag name to filter
     const tagNameBrut = e.target.innerText;
@@ -43,11 +51,12 @@ tags.forEach((tag) => {
   });
 });
 
+// functions
 const handleActive = (e) => {
   tags.forEach((tag) => {
     tag.classList.remove("active");
   });
-  e.target.classList.add("active");
+  e.target.classList.contains("tag") && e.target.classList.add("active");
 };
 
 const showFilter = (category) => {
@@ -60,5 +69,10 @@ const showFilter = (category) => {
       }
     });
     showPhotographer(filterdPhotographer);
+  });
+};
+const showAll = () => {
+  fetchData().then(({ photographers }) => {
+    showPhotographer(photographers);
   });
 };
