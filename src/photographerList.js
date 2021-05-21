@@ -1,5 +1,5 @@
-import fetchData from "./modules/fetchingData.js";
-import photographerCardMarkup from "./modules/photographerCardMarkup.js";
+import fetchData from "./utils/modules/fetchingData.js";
+import photographerCardMarkup from "./utils/modules/photographerCardMarkup.js";
 
 //Selectors:
 const tags = document.querySelectorAll(".tag");
