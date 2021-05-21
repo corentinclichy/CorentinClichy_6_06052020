@@ -5,11 +5,12 @@ const photographerCardMarkup = (
   tagline,
   price,
   tags,
-  image_url
+  image_url,
+  id
 ) => {
   return `
       <div class="cards-container__card-photographer">
-          <a href="#" class="card-photographer__link">
+          <a href="pages/photographer.html?id=${id}" class="card-photographer__link">
             <figure class="card-photographer__img">
               <img src="../public/assets/Images/Photographers/${image_url}" alt="" />
             </figure>
