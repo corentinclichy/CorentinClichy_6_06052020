@@ -1,11 +1,11 @@
-const mediaGalleryMarkup = (photographer_id, image_url, likes, title) => {
+const mediaGalleryVideoMarkup = (photographer_id, image_url, likes, title) => {
   return `
     <div class="showcase__photo-card">
     <figure class="photo-card__img">
-      <img
-        src="../../public/assets/Images/${photographer_id}/${image_url}"
-        alt=""
-      />
+    <video width="320" height="240" controls="controls" preload="metadata">
+    <source src="../../public/assets/Images/${photographer_id}/${image_url}#t=0.1" type="video/mp4">
+  </video>
+
     </figure>
     <figcaption class="photo-card__infos">
       <p>${title}</p>
@@ -18,7 +18,4 @@ const mediaGalleryMarkup = (photographer_id, image_url, likes, title) => {
         `;
 };
 
-export default mediaGalleryMarkup;
-
-
-/// 1 class markup a
+export default mediaGalleryVideoMarkup;

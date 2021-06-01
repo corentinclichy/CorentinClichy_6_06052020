@@ -17,3 +17,6 @@ JSON
 -> AJOUTER UN CHAMP ALT POUR LES IMAGES
 
  -->
+
+
+ //faire un MVC
