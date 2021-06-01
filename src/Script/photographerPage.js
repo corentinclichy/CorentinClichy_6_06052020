@@ -9,6 +9,7 @@ class PhotographerPage {
     this.showcaseContainer = document.querySelector(".showcase");
     this.fetchData = fetchData();
     this.elementFactory = new ElementFactory();
+    this.totalLikes = 0;
   }
 
   _getId() {
@@ -23,17 +24,19 @@ class PhotographerPage {
     const id = this._getId();
     fetchData().then(({ photographers, media }) => {
       // Photographer infos
-      const filteredPhotographers = photographers.filter((el) => el.id === id);
-      const photographer = filteredPhotographers[0];
-      this._showPhotographer(photographer);
 
       // medias of the photographers
       const filterMedia = media.filter((el) => el.photographerId === id);
       this._showMedias(filterMedia);
+
+      // INFOS PRICE TOTAL LIKES OF THE PHOTOGRAPHER
+      const filteredPhotographers = photographers.filter((el) => el.id === id);
+      const photographer = filteredPhotographers[0];
+      this._showPhotographer(photographer);
     });
   }
 
-  _showPhotographer(photographer) {
+  _showPhotographer(photographer, media) {
     this.photographerBio.innerHTML = "";
     this.photographerPriceInfos.innerHTML = "";
 
@@ -46,7 +49,10 @@ class PhotographerPage {
       photographer.portrait
     );
 
-    const price = this.elementFactory.createPriceInfos(photographer.price);
+    const price = this.elementFactory.createPriceInfos(
+      photographer.price,
+      this.totalLikes
+    );
 
     this.photographerBio.innerHTML = bio;
     this.photographerPriceInfos.innerHTML = price;
@@ -57,7 +63,6 @@ class PhotographerPage {
 
     medias.map(({ photographerId, image, video, likes, title }) => {
       let mediaList;
-      console.log(video);
       if (!image) {
         mediaList = this.elementFactory.createMediaGallery(
           "video",
@@ -66,6 +71,8 @@ class PhotographerPage {
           likes,
           title
         );
+
+        this.totalLikes += likes;
       } else {
         mediaList = this.elementFactory.createMediaGallery(
           "image",
@@ -74,13 +81,12 @@ class PhotographerPage {
           likes,
           title
         );
+        this.totalLikes += likes;
       }
 
       this.showcaseContainer.innerHTML += mediaList;
     });
   }
-
-  _mediafactory;
 }
 
 const photographerPage = new PhotographerPage();

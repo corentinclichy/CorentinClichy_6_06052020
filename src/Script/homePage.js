@@ -1,5 +1,4 @@
 import fetchData from "../utils/fetchingData.js";
-import Markup from "./markup.js";
 import ElementFactory from "./ElementFactory.js";
 
 class HomePage {
