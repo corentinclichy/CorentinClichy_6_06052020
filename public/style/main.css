@@ -507,6 +507,40 @@ header .tags .row {
   cursor: pointer;
 }
 
+.filters {
+  font-size: 14px;
+}
+.filters .filters__name {
+  font-weight: 700;
+  margin-right: 10px;
+}
+.filters .dropdown {
+  width: fit-content;
+  padding: 0 10px;
+  background-color: #901c1c;
+  border-radius: 5px;
+}
+.filters .dropdown .dropbtn {
+  color: white;
+  background-color: #901c1c;
+  font-weight: 700;
+  padding: 14px;
+}
+.filters .dropdown .dropbtn .fa-chevron-up {
+  margin-left: 18px;
+}
+.filters .dropdown .dropdown-content {
+  display: flex;
+  flex-direction: column;
+}
+.filters .dropdown .dropdown-content a {
+  color: white;
+  background-color: #901c1c;
+  border-top: 1px solid white;
+  font-weight: 700;
+  padding: 14px;
+}
+
 .cards-container {
   display: grid;
   margin-top: 50px;
@@ -593,6 +627,13 @@ header .tags .row {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.filters {
+  width: 92%;
+  margin: auto;
+  padding-top: 20px;
+  display: flex;
 }
 
 .showcase {
