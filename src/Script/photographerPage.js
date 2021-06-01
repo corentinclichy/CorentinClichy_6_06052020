@@ -1,14 +1,14 @@
-import fetchData from "../utils/modules/fetchingData.js";
-import photographerBioMarkup from "../utils/modules/photographerBioMarkup.js";
-import priceInfosPhotographerMarkup from "../utils/modules/PriceInfosPhotographerMarkup.js";
-import mediaGalleryMarkup from "../utils/modules/mediaGalleryMarkup.js";
-import mediaGalleryVideoMarkup from "../utils/modules/mediaGalleryVideoMarkup.js";
+import fetchData from "../utils/fetchingData.js";
+import Markup from "../Script/markup.js";
+import ElementFactory from "./ElementFactory.js";
 
 class PhotographerPage {
   constructor() {
     this.photographerBio = document.querySelector(".photographer-infos");
     this.photographerPriceInfos = document.querySelector(".photograher__price");
     this.showcaseContainer = document.querySelector(".showcase");
+    this.fetchData = fetchData();
+    this.elementFactory = new ElementFactory();
   }
 
   _getId() {
@@ -37,7 +37,7 @@ class PhotographerPage {
     this.photographerBio.innerHTML = "";
     this.photographerPriceInfos.innerHTML = "";
 
-    const bio = photographerBioMarkup(
+    const bio = this.elementFactory.createPhotographerBio(
       photographer.name,
       photographer.city,
       photographer.country,
@@ -46,7 +46,7 @@ class PhotographerPage {
       photographer.portrait
     );
 
-    const price = priceInfosPhotographerMarkup(photographer.price);
+    const price = this.elementFactory.createPriceInfos(photographer.price);
 
     this.photographerBio.innerHTML = bio;
     this.photographerPriceInfos.innerHTML = price;
@@ -59,14 +59,21 @@ class PhotographerPage {
       let mediaList;
       console.log(video);
       if (!image) {
-        mediaList = mediaGalleryVideoMarkup(
+        mediaList = this.elementFactory.createMediaGallery(
+          "video",
           photographerId,
           video,
           likes,
           title
         );
       } else {
-        mediaList = mediaGalleryMarkup(photographerId, image, likes, title);
+        mediaList = this.elementFactory.createMediaGallery(
+          "image",
+          photographerId,
+          image,
+          likes,
+          title
+        );
       }
 
       this.showcaseContainer.innerHTML += mediaList;

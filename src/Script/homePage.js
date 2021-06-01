@@ -1,21 +1,22 @@
-import fetchData from "./utils/modules/fetchingData.js";
-import photographerCardMarkup from "./utils/modules/photographerCardMarkup.js";
+import fetchData from "../utils/fetchingData.js";
+import Markup from "./markup.js";
+import ElementFactory from "./ElementFactory.js";
 
-class PhotographerList {
+class HomePage {
   constructor() {
     this.tags = document.querySelectorAll(".tag");
     this.logo = document.querySelector(".header__logo");
     this.photographersContainer = document.querySelector(".cards-container");
     this.photographer = [];
+    this.elementFactory = new ElementFactory();
   }
 
-  //Pseudo private Function
-  // TODO: try to pass the method private
   _displayPhotographer(photographers) {
     this.photographersContainer.innerHTML = "";
+
     photographers.map(
       ({ name, city, country, tagline, price, tags, portrait, id }) => {
-        const photographerList = photographerCardMarkup(
+        const photographerList = this.elementFactory.createPhotographerList(
           name,
           city,
           country,
@@ -64,16 +65,16 @@ class PhotographerList {
   }
 }
 
-const photographerList = new PhotographerList();
+const homePage = new HomePage();
 
 window.onload = () => {
-  photographerList.showphotographer();
+  homePage.showphotographer();
 };
 
 //EVENT LISTENER
 ///CLICK ON A TAG
-photographerList.tags.forEach((tag) => {
+homePage.tags.forEach((tag) => {
   tag.addEventListener("click", function (e) {
-    photographerList.showFilter(e);
+    homePage.showFilter(e);
   });
 });
