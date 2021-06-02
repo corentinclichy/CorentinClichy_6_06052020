@@ -15,16 +15,16 @@ class HomePage {
 
     photographers.map(
       ({ name, city, country, tagline, price, tags, portrait, id }) => {
-        const photographerList = this.elementFactory.createPhotographerList(
-          name,
-          city,
-          country,
-          tagline,
-          price,
-          tags,
-          portrait,
-          id
-        );
+        const photographerList = this.elementFactory.createPhotographerList({
+          name: name,
+          city: city,
+          country: country,
+          tagline: tagline,
+          price: price,
+          tags: tags,
+          image_url: portrait,
+          id: id,
+        });
         this.photographersContainer.innerHTML += photographerList;
       }
     );

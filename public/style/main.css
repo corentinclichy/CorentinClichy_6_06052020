@@ -288,6 +288,7 @@ header .tags .row {
   height: 30vh;
   border-radius: 5px;
   overflow: hidden;
+  cursor: pointer;
 }
 @media (min-width: 768px) {
   .showcase__photo-card .photo-card__img {
@@ -303,8 +304,13 @@ header .tags .row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 20px;
+  padding-top: 18px;
   color: #901c1c;
+}
+.showcase__photo-card .photo-card__infos .like__btn {
+  cursor: pointer;
+  color: #901c1c;
+  font-size: 18px;
 }
 
 .contact-btn {
@@ -518,7 +524,11 @@ header .tags .row {
   width: fit-content;
   padding: 0 10px;
   background-color: #901c1c;
-  border-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  position: relative;
 }
 .filters .dropdown .dropbtn {
   color: white;
@@ -532,13 +542,30 @@ header .tags .row {
 .filters .dropdown .dropdown-content {
   display: flex;
   flex-direction: column;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  top: 20;
+  left: 0;
+  background-color: #901c1c;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 .filters .dropdown .dropdown-content a {
   color: white;
+  width: 70%;
+  margin: auto;
   background-color: #901c1c;
   border-top: 1px solid white;
   font-weight: 700;
   padding: 14px;
+}
+.filters .dropdown .hide {
+  display: none;
+}
+.filters .open {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
 .cards-container {
@@ -634,6 +661,7 @@ header .tags .row {
   margin: auto;
   padding-top: 20px;
   display: flex;
+  align-items: center;
 }
 
 .showcase {

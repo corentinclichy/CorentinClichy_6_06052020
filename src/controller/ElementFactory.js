@@ -32,27 +32,9 @@ class ElementFactory {
 
       return markup;
     };
-    this.createPhotographerList = function (
-      name,
-      city,
-      country,
-      tagline,
-      price,
-      tags,
-      portrait,
-      id
-    ) {
+    this.createPhotographerList = function (photographer) {
       let media = new Markup();
-      let markup = media.photographerCardMarkup(
-        name,
-        city,
-        country,
-        tagline,
-        price,
-        tags,
-        portrait,
-        id
-      );
+      let markup = media.photographerCardMarkup(photographer);
 
       return markup;
     };

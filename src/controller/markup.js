@@ -13,7 +13,9 @@ class Markup {
             <p>${title}</p>
             <div class="like">
               <span>${likes}</span>
-              <i class="fas fa-heart"></i>
+              <button class="like__btn">
+               <i class="fas fa-heart"></i>
+              </button>
             </div>
           </figcaption>
         </div>
@@ -32,8 +34,10 @@ class Markup {
         <figcaption class="photo-card__infos">
           <p>${title}</p>
           <div class="like">
-            <span>${likes}</span>
-            <i class="fas fa-heart"></i>
+            <span class='like__numbers'>${likes}</span>
+            <button class="like__btn">
+               <i class="fas fa-heart"></i>
+            </button>
           </div>
         </figcaption>
       </div>
@@ -79,16 +83,9 @@ class Markup {
         `;
   }
 
-  photographerCardMarkup(
-    name,
-    city,
-    country,
-    tagline,
-    price,
-    tags,
-    image_url,
-    id
-  ) {
+  photographerCardMarkup(photographer) {
+    const { id, image_url, name, city, country, tagline, price, tags } =
+      photographer;
     return `
           <div class="cards-container__card-photographer">
               <a href="pages/photographer.html?id=${id}" class="card-photographer__link">
@@ -118,7 +115,7 @@ class Markup {
   priceInfosPhotographerMarkup(price, likes) {
     return `
         <div class="photograher__price__total-likes">
-          <span>${likes}</span>
+          <span class="total-likes__number">${likes}</span>
           <i class="fas fa-heart"></i>
         </div>
         <p>${price}€/j</p>

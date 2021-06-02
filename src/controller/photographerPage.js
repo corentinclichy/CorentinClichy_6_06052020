@@ -1,5 +1,4 @@
 import fetchData from "../utils/fetchingData.js";
-import Markup from "../Script/markup.js";
 import ElementFactory from "./ElementFactory.js";
 
 class PhotographerPage {
@@ -7,9 +6,16 @@ class PhotographerPage {
     this.photographerBio = document.querySelector(".photographer-infos");
     this.photographerPriceInfos = document.querySelector(".photograher__price");
     this.showcaseContainer = document.querySelector(".showcase");
+    this.totalLikesNumber = document.querySelector(".total-likes__number");
     this.fetchData = fetchData();
     this.elementFactory = new ElementFactory();
     this.totalLikes = 0;
+
+    this.dropdownContent = document.querySelector(".dropdown-content");
+    this.dropdown = document.querySelector(".dropdown");
+    this.dropdownBtn = document.querySelector(".dropbtn");
+    this.likeBtns = [];
+    this.likes = [];
   }
 
   _getId() {
@@ -27,7 +33,33 @@ class PhotographerPage {
 
       // medias of the photographers
       const filterMedia = media.filter((el) => el.photographerId === id);
-      this._showMedias(filterMedia);
+      this._showMedias(filterMedia, () => {
+        this.likeBtns = document.querySelectorAll(".like__btn");
+        this.likeBtns.forEach((el) => {
+          el.addEventListener("click", () => {
+            let totalNumberOfLikes = document.querySelector(
+              ".total-likes__number"
+            );
+            console.log(totalNumberOfLikes);
+
+            let totalNumberOfLikesInt = parseInt(totalNumberOfLikes.innerHTML);
+
+            console.log(totalNumberOfLikesInt);
+            if (el.classList.contains("liked")) {
+              let likesInt = parseInt(el.previousElementSibling.innerHTML);
+              let updatedLikes = likesInt - 1;
+              el.previousElementSibling.innerHTML = updatedLikes;
+              totalNumberOfLikes.innerHTML = totalNumberOfLikesInt - 1;
+            } else {
+              let likesInt = parseInt(el.previousElementSibling.innerHTML);
+              let updatedLikes = likesInt + 1;
+              el.previousElementSibling.innerHTML = updatedLikes;
+              totalNumberOfLikes.innerHTML = totalNumberOfLikesInt + 1;
+            }
+            el.classList.toggle("liked");
+          });
+        });
+      });
 
       // INFOS PRICE TOTAL LIKES OF THE PHOTOGRAPHER
       const filteredPhotographers = photographers.filter((el) => el.id === id);
@@ -58,7 +90,7 @@ class PhotographerPage {
     this.photographerPriceInfos.innerHTML = price;
   }
 
-  _showMedias(medias) {
+  _showMedias(medias, callback) {
     this.showcaseContainer.innerHTML = "";
 
     medias.map(({ photographerId, image, video, likes, title }) => {
@@ -86,11 +118,27 @@ class PhotographerPage {
 
       this.showcaseContainer.innerHTML += mediaList;
     });
+    callback();
+  }
+
+  showFilter() {
+    this.dropdownContent.classList.toggle("hide");
+    this.dropdown.classList.toggle("open");
+  }
+
+  addLike() {
+    console.log("click");
   }
 }
 
 const photographerPage = new PhotographerPage();
 
-window.onload = () => {
+window.onload = async () => {
   photographerPage.fetchPhotographer();
 };
+
+photographerPage.dropdownBtn.addEventListener("click", () => {
+  photographerPage.showFilter();
+});
+
+window.addEventListener("DOMContentLoaded", () => {});

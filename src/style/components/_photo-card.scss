@@ -4,6 +4,7 @@
     height: 30vh;
     border-radius: 5px;
     overflow: hidden;
+    cursor: pointer;
     @include size("md") {
       height: 45vh;
     }
@@ -18,7 +19,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 20px;
+    padding-top: 18px;
     color: $primary;
+
+    .like__btn {
+      cursor: pointer;
+      color: $primary;
+      font-size: 18px;
+    }
   }
 }
