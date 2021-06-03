@@ -7,7 +7,8 @@ class ElementFactory {
       photographer_id,
       image_url,
       likes,
-      title
+      title,
+      id
     ) {
       let media;
       let markup;
@@ -18,7 +19,8 @@ class ElementFactory {
           photographer_id,
           image_url,
           likes,
-          title
+          title,
+          id
         );
       } else if (type === "image") {
         media = new Markup();
@@ -26,7 +28,8 @@ class ElementFactory {
           photographer_id,
           image_url,
           likes,
-          title
+          title,
+          id
         );
       }
 

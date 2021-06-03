@@ -8,9 +8,9 @@
   color: $primary;
   font-size: 25px;
   z-index: 2;
-  display: flex;
-  align-items: center;
   display: none;
+  align-items: center;
+  // display: none;
 
   .lightbox__wrapper {
     width: 92%;

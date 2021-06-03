@@ -1,10 +1,11 @@
 class Markup {
-  mediaGalleryVideoMarkup(photographer_id, image_url, likes, title) {
+  mediaGalleryVideoMarkup(photographer_id, image_url, likes, title, id) {
     return `
           <div class="showcase__photo-card">
-          <figure class="photo-card__img">
+          <figure class="photo-card__img" >
           <video
-          preload="metadata">
+          preload="metadata"
+          id=${id}>
           <source src="../../public/assets/Images/${photographer_id}/${image_url}#t=0.1" type="video/mp4">
         </video>
       
@@ -22,13 +23,14 @@ class Markup {
               `;
   }
 
-  mediaGalleryImageMarkup(photographer_id, image_url, likes, title) {
+  mediaGalleryImageMarkup(photographer_id, image_url, likes, title, id) {
     return `
         <div class="showcase__photo-card">
-        <figure class="photo-card__img">
+        <figure class="photo-card__img" >
           <img
             src="../../public/assets/Images/${photographer_id}/${image_url}"
             alt=""
+            id=${id}
           />
         </figure>
         <figcaption class="photo-card__infos">

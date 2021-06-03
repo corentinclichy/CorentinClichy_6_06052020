@@ -1,5 +1,6 @@
 import fetchData from "../utils/fetchingData.js";
 import ElementFactory from "./ElementFactory.js";
+import mediaModal from "./mediaModal.js";
 
 class PhotographerPage {
   constructor() {
@@ -16,6 +17,9 @@ class PhotographerPage {
     this.dropdownBtn = document.querySelector(".dropbtn");
     this.likeBtns = [];
     this.likes = [];
+
+    //Lightbox Selectors
+    this.closeBtn = document.querySelector(".close-btn");
   }
 
   _getId() {
@@ -40,33 +44,7 @@ class PhotographerPage {
 
       // medias of the photographers
       const filterMedia = media.filter((el) => el.photographerId === id);
-      this._showMedias(filterMedia, () => {
-        this.likeBtns = document.querySelectorAll(".like__btn");
-        this.likeBtns.forEach((el) => {
-          el.addEventListener("click", () => {
-            let totalNumberOfLikes = document.querySelector(
-              ".total-likes__number"
-            );
-            console.log(totalNumberOfLikes);
-
-            let totalNumberOfLikesInt = parseInt(totalNumberOfLikes.innerHTML);
-
-            console.log(totalNumberOfLikesInt);
-            if (el.classList.contains("liked")) {
-              let likesInt = parseInt(el.previousElementSibling.innerHTML);
-              let updatedLikes = likesInt - 1;
-              el.previousElementSibling.innerHTML = updatedLikes;
-              totalNumberOfLikes.innerHTML = totalNumberOfLikesInt - 1;
-            } else {
-              let likesInt = parseInt(el.previousElementSibling.innerHTML);
-              let updatedLikes = likesInt + 1;
-              el.previousElementSibling.innerHTML = updatedLikes;
-              totalNumberOfLikes.innerHTML = totalNumberOfLikesInt + 1;
-            }
-            el.classList.toggle("liked");
-          });
-        });
-      });
+      this._showMedias(filterMedia);
 
       // INFOS PRICE TOTAL LIKES OF THE PHOTOGRAPHER
       const filteredPhotographers = photographers.filter((el) => el.id === id);
@@ -97,10 +75,10 @@ class PhotographerPage {
     this.photographerPriceInfos.innerHTML = price;
   }
 
-  _showMedias(medias, callback) {
+  _showMedias(medias) {
     this.showcaseContainer.innerHTML = "";
 
-    medias.map(({ photographerId, image, video, likes, title }) => {
+    medias.map(({ photographerId, image, video, likes, title, id }) => {
       let mediaList;
       if (!image) {
         mediaList = this.elementFactory.createMediaGallery(
@@ -108,7 +86,8 @@ class PhotographerPage {
           photographerId,
           video,
           likes,
-          title
+          title,
+          id
         );
 
         this.totalLikes += likes;
@@ -118,23 +97,61 @@ class PhotographerPage {
           photographerId,
           image,
           likes,
-          title
+          title,
+          id
         );
         this.totalLikes += likes;
       }
 
       this.showcaseContainer.innerHTML += mediaList;
     });
-    callback();
+
+    // LIKE FEATURE
+    this.likeBtns = document.querySelectorAll(".like__btn");
+    this.likeBtns.forEach((el) => {
+      el.addEventListener("click", () => {
+        let totalNumberOfLikes = document.querySelector(".total-likes__number");
+
+        let totalNumberOfLikesInt = parseInt(totalNumberOfLikes.innerHTML);
+
+        if (el.classList.contains("liked")) {
+          let likesInt = parseInt(el.previousElementSibling.innerHTML);
+          let updatedLikes = likesInt - 1;
+          el.previousElementSibling.innerHTML = updatedLikes;
+          totalNumberOfLikes.innerHTML = totalNumberOfLikesInt - 1;
+        } else {
+          let likesInt = parseInt(el.previousElementSibling.innerHTML);
+          let updatedLikes = likesInt + 1;
+          el.previousElementSibling.innerHTML = updatedLikes;
+          totalNumberOfLikes.innerHTML = totalNumberOfLikesInt + 1;
+        }
+        el.classList.toggle("liked");
+      });
+    });
+
+    ///////////////////////////////////////////////// OPEN MODAL FEATURE
+    const lightboxModal = new mediaModal();
+
+    let allMedias = document.querySelectorAll(".photo-card__img");
+
+    // open modal
+    allMedias.forEach((media) => {
+      media.addEventListener("click", (e) => {
+        const media_id = e.target.id;
+
+        lightboxModal.show(media_id, medias);
+      });
+    });
+
+    // close modal
+    this.closeBtn.addEventListener("click", (e) => {
+      lightboxModal.hide();
+    });
   }
 
   showFilter() {
     this.dropdownContent.classList.toggle("hide");
     this.dropdown.classList.toggle("open");
-  }
-
-  addLike() {
-    console.log("click");
   }
 }
 
