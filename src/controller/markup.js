@@ -63,9 +63,9 @@ class Markup {
         <div class="card-photographer__tags">
         ${tags
           .map((tag) => {
-            return `<div class="tag">
-              <a href="#">#${tag}</a>
-            </div>`;
+            return `
+              <a class="tag" href="../index.html?tag=${tag}">#${tag}</a>
+           `;
           })
           .join("")}
         </div>
@@ -102,9 +102,9 @@ class Markup {
               <div class="card-photographer__tags">
               ${tags
                 .map((tag) => {
-                  return `<div class="tag">
-                    <a href="#">#${tag}</a>
-                  </div>`;
+                  return `
+                    <a class="tag" href="index.html?tag=${tag}">#${tag}</a>
+                  `;
                 })
                 .join("")}
               </div>

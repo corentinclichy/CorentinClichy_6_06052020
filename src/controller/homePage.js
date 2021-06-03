@@ -10,7 +10,15 @@ class HomePage {
     this.elementFactory = new ElementFactory();
   }
 
-  _displayPhotographer(photographers) {
+  _getTag() {
+    const url = new URL(window.location.href);
+    let params = new URLSearchParams(url.search);
+    let tag = params.get("tag");
+
+    return tag;
+  }
+
+  _displayPhotographer(photographers, callback) {
     this.photographersContainer.innerHTML = "";
 
     photographers.map(
@@ -28,39 +36,47 @@ class HomePage {
         this.photographersContainer.innerHTML += photographerList;
       }
     );
+
+    this.tags = document.querySelectorAll(".tag");
+
+    this.tags.forEach((tag) => {
+      tag.addEventListener("click", function (e) {
+        console.log(e.target);
+        // this.showFilter(e);
+      });
+    });
   }
 
-  showFilter(e) {
-    const tag = e.target;
-
+  showActive(tag) {
+    let selectedTag = document.querySelector(`#${tag}`);
     //handle state active/unactive of the nav hashtag
     let tags = document.querySelectorAll(".tag");
     tags.forEach((tag) => {
       tag.classList.remove("active");
     });
-    tag.classList.add("active");
-
-    // Get the name of the tag and process it in order to match the db styling
-    const tagNameBrut = e.target.innerText;
-
-    const tagName = tagNameBrut.substr(1, tagNameBrut.length - 1).toLowerCase();
-
-    //fetch data and map
-    fetchData().then(({ photographers }) => {
-      let filterdPhotographer = [];
-      photographers.map((photographer) => {
-        if (photographer.tags.includes(tagName)) {
-          filterdPhotographer = [...filterdPhotographer, photographer];
-        }
-        this._displayPhotographer(filterdPhotographer);
-      });
-    });
+    selectedTag && selectedTag.classList.add("active");
   }
 
   showphotographer() {
-    fetchData().then(({ photographers }) => {
-      this._displayPhotographer(photographers);
-    });
+    let tag = this._getTag();
+
+    if (tag === null) {
+      fetchData().then(({ photographers }) => {
+        this._displayPhotographer(photographers);
+      });
+    } else {
+      fetchData().then(({ photographers }) => {
+        let filterdPhotographer = [];
+        photographers.map((photographer) => {
+          if (photographer.tags.includes(tag)) {
+            filterdPhotographer = [...filterdPhotographer, photographer];
+          }
+          this._displayPhotographer(filterdPhotographer);
+        });
+      });
+    }
+
+    this.showActive(tag);
   }
 }
 
@@ -69,11 +85,3 @@ const homePage = new HomePage();
 window.onload = () => {
   homePage.showphotographer();
 };
-
-//EVENT LISTENER
-///CLICK ON A TAG
-homePage.tags.forEach((tag) => {
-  tag.addEventListener("click", function (e) {
-    homePage.showFilter(e);
-  });
-});

@@ -6,21 +6,13 @@
   padding: 4px;
   transition: all 0.25s ease-in-out;
 
-  a {
-    pointer-events: none;
-  }
-
   &:hover {
     background-color: $primary;
-    a {
-      color: white;
-    }
+    color: white;
   }
 }
 
 .active {
   background-color: $primary;
-  a {
-    color: white;
-  }
+  color: white;
 }

@@ -26,6 +26,13 @@ class PhotographerPage {
     return id;
   }
 
+  _getTag() {
+    const url = new URL(window.location.href);
+    let params = new URLSearchParams(url.search);
+    let tag = params.get("tag");
+    return tag;
+  }
+
   fetchPhotographer() {
     const id = this._getId();
     fetchData().then(({ photographers, media }) => {
