@@ -18,7 +18,7 @@ class HomePage {
     return tag;
   }
 
-  _displayPhotographer(photographers, callback) {
+  _displayPhotographer(photographers) {
     this.photographersContainer.innerHTML = "";
 
     photographers.map(

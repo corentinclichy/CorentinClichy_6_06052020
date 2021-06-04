@@ -20,6 +20,8 @@ class PhotographerPage {
 
     //Lightbox Selectors
     this.closeBtn = document.querySelector(".close-btn");
+    this.previousMedia = document.querySelector(".previous-btn");
+    this.nextMedia = document.querySelector(".next-btn");
   }
 
   _getId() {
@@ -53,26 +55,26 @@ class PhotographerPage {
     });
   }
 
-  _showPhotographer(photographer, media) {
+  _showPhotographer({ name, city, country, tagline, tags, portrait, price }) {
     this.photographerBio.innerHTML = "";
     this.photographerPriceInfos.innerHTML = "";
 
-    const bio = this.elementFactory.createPhotographerBio(
-      photographer.name,
-      photographer.city,
-      photographer.country,
-      photographer.tagline,
-      photographer.tags,
-      photographer.portrait
-    );
+    const bio = this.elementFactory.createPhotographerBio({
+      name: name,
+      city: city,
+      country: country,
+      tagline: tagline,
+      tags: tags,
+      image_url: portrait,
+    });
 
-    const price = this.elementFactory.createPriceInfos(
-      photographer.price,
+    const photographerPrice = this.elementFactory.createPriceInfos(
+      price,
       this.totalLikes
     );
 
     this.photographerBio.innerHTML = bio;
-    this.photographerPriceInfos.innerHTML = price;
+    this.photographerPriceInfos.innerHTML = photographerPrice;
   }
 
   _showMedias(medias) {
@@ -129,7 +131,7 @@ class PhotographerPage {
       });
     });
 
-    ///////////////////////////////////////////////// OPEN MODAL FEATURE
+    // OPEN MODAL FEATURE
     const lightboxModal = new mediaModal();
 
     let allMedias = document.querySelectorAll(".photo-card__img");
@@ -142,6 +144,8 @@ class PhotographerPage {
         lightboxModal.show(media_id, medias);
       });
     });
+
+    this.previousMedia;
 
     // close modal
     this.closeBtn.addEventListener("click", (e) => {

@@ -35,29 +35,32 @@ class ElementFactory {
 
       return markup;
     };
+
+    this.createlightboxMedia = function (type, media) {
+      let markup;
+      let video;
+      let image;
+
+      if (type === "video") {
+        markup = new Markup();
+        video = markup.lightBoxGalleryVideoMarkup(media);
+        return video;
+      } else if (type === "image") {
+        markup = new Markup();
+        image = markup.lightBoxGalleryImageMarkup(media);
+        return image;
+      }
+    };
+
     this.createPhotographerList = function (photographer) {
       let media = new Markup();
       let markup = media.photographerCardMarkup(photographer);
 
       return markup;
     };
-    this.createPhotographerBio = function (
-      name,
-      city,
-      country,
-      tagline,
-      tags,
-      image_url
-    ) {
+    this.createPhotographerBio = function (photographer) {
       let media = new Markup();
-      let markup = media.photographerBioMarkup(
-        name,
-        city,
-        country,
-        tagline,
-        tags,
-        image_url
-      );
+      let markup = media.photographerBioMarkup(photographer);
       return markup;
     };
 

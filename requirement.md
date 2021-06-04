@@ -20,7 +20,7 @@ JSON
 
  <!-- 
  
- LightBox
+ ////////LightBox
  - feature pour previous et next image
  - gérer si c'est une video ou une image
  

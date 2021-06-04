@@ -46,7 +46,39 @@ class Markup {
             `;
   }
 
-  photographerBioMarkup(name, city, country, tagline, tags, image_url) {
+  lightBoxGalleryImageMarkup({ photographerId, image, id, title }) {
+    return `
+    <figure class="lightbox__content__img">
+            <img
+              src="../../public/assets/Images/${photographerId}/${image}"
+              alt=""
+              id=${id}
+            />
+    </figure>
+    <figcaption class="img__infos">
+            <p class="">${title}</p>
+    </figcaption>
+
+    `;
+  }
+
+  lightBoxGalleryVideoMarkup({ id, photographerId, title, video }) {
+    return `
+    <figure class="lightbox__content__img">
+    <video
+    preload="metadata"
+    id=${id}
+    controls>
+    <source src="../../public/assets/Images/${photographerId}/${video}#t=0.1" type="video/mp4">
+    </figure>
+    <figcaption class="img__infos">
+            <p class="">${title}</p>
+    </figcaption>
+    `;
+  }
+
+  photographerBioMarkup(photographer) {
+    const { name, city, country, tagline, tags, image_url } = photographer;
     return `
         <div class="panel-left">
         <div class="wrap">
