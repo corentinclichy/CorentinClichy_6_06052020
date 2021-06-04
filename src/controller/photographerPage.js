@@ -145,7 +145,14 @@ class PhotographerPage {
       });
     });
 
-    this.previousMedia;
+    //show previous Media
+    this.previousMedia.addEventListener("click", () => {
+      lightboxModal.showPrevious(medias);
+    });
+    //show next Media
+    this.nextMedia.addEventListener("click", () => {
+      lightboxModal.showNext(medias);
+    });
 
     // close modal
     this.closeBtn.addEventListener("click", (e) => {

@@ -48,7 +48,7 @@ class Markup {
 
   lightBoxGalleryImageMarkup({ photographerId, image, id, title }) {
     return `
-    <figure class="lightbox__content__img">
+    <figure class="lightbox__content__img" id=${id}>
             <img
               src="../../public/assets/Images/${photographerId}/${image}"
               alt=""
@@ -64,7 +64,7 @@ class Markup {
 
   lightBoxGalleryVideoMarkup({ id, photographerId, title, video }) {
     return `
-    <figure class="lightbox__content__img">
+    <figure class="lightbox__content__img" id=${id}>
     <video
     preload="metadata"
     id=${id}

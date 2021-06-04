@@ -10,20 +10,11 @@ class mediaModal {
     this.elementFactory = new ElementFactory();
   }
 
-  show(media_id, medias) {
-    let idInt = parseInt(media_id);
-
-    const selectedMedia = medias.find((media) => media.id === idInt);
-
-    const { id, photographerId, video, image, title } = selectedMedia;
-
-    this.modal.style.display = "flex";
-
+  _displayMedia(type, { id, photographerId, video, image, title }) {
     this.lightBoxContent.innerHTML = "";
-
     let lightBoxMedia;
 
-    if (!image) {
+    if (!type) {
       lightBoxMedia = this.elementFactory.createlightboxMedia("video", {
         id: id,
         title: title,
@@ -44,11 +35,85 @@ class mediaModal {
     this.lightBoxContent.innerHTML = lightBoxMedia;
   }
 
-  showPrevious(media_id, medias) {
-    console.log(media_id, medias);
+  show(media_id, medias) {
+    let idInt = parseInt(media_id);
+
+    const selectedMedia = medias.find((media) => media.id === idInt);
+
+    const { id, photographerId, video, image, title } = selectedMedia;
+
+    this.modal.style.display = "flex";
+
+    this._displayMedia(image, {
+      id,
+      photographerId,
+      video,
+      image,
+      title,
+    });
   }
 
-  showNext() {}
+  showPrevious(medias) {
+    const currentMediaId = parseInt(
+      document.querySelector(".lightbox__content__img").id
+    );
+
+    const currentMediaIndex = medias.findIndex(
+      (obj) => obj.id == currentMediaId
+    );
+
+    //get the previous index
+    let previousMediaIndex;
+    if (currentMediaIndex === 0) {
+      // if index = 0 => display the last media
+      previousMediaIndex = medias.length - 1;
+    } else {
+      // if index > 0 => display the currentmedia -1
+      previousMediaIndex = currentMediaIndex - 1;
+    }
+
+    const previousMedia = medias[previousMediaIndex];
+    const { id, photographerId, video, image, title } = previousMedia;
+
+    this._displayMedia(image, {
+      id,
+      photographerId,
+      video,
+      image,
+      title,
+    });
+  }
+
+  showNext(medias) {
+    const currentMediaId = parseInt(
+      document.querySelector(".lightbox__content__img").id
+    );
+
+    const currentMediaIndex = medias.findIndex(
+      (obj) => obj.id == currentMediaId
+    );
+
+    //get the previous index
+    let nextMediaIndex;
+    if (currentMediaIndex === medias.length - 1) {
+      // if index = 0 => display the last media
+      nextMediaIndex = 0;
+    } else {
+      // if index > 0 => display the currentmedia -1
+      nextMediaIndex = currentMediaIndex + 1;
+    }
+
+    const nextMedia = medias[nextMediaIndex];
+    const { id, photographerId, video, image, title } = nextMedia;
+
+    this._displayMedia(image, {
+      id,
+      photographerId,
+      video,
+      image,
+      title,
+    });
+  }
 
   hide() {
     this.modal.style.display = "none";
