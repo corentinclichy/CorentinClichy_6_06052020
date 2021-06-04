@@ -83,7 +83,7 @@ class Markup {
         <div class="panel-left">
         <div class="wrap">
           <h1>${name}</h1>
-          <button class="contact-btn contact-btn--desktop">
+          <button class="contact-btn contact-btn--desktop modal-btn">
             Contactez-moi
           </button>
         </div>

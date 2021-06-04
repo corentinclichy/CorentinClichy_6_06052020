@@ -47,12 +47,14 @@
       <div class="photograher__price">
         <!-- PRICE AND LIKES INFOS -->
       </div>
-      <button class="contact-btn contact-btn--mobile">Contactez-moi</button>
+      <button class="contact-btn contact-btn--mobile modal-btn">
+        Contactez-moi
+      </button>
     </main>
 
     <!-- MODAL: LIGHTBOX / CONTACT MODAL -->
     <!-- LIGHTBOX -->
-    <div class="lightbox">
+    <div class="lightbox modal">
       <div class="lightbox__wrapper">
         <div class="lightbox__arrow-left">
           <span class="previous-btn">
@@ -81,7 +83,7 @@
       </div>
     </div>
     <!-- CONTACT FORM -->
-    <div class="contact">
+    <div class="contact modal">
       <div class="contact__wrapper">
         <h1>
           Contactez-moi <br />
@@ -98,7 +100,9 @@
           <textarea name="message" id="message"></textarea>
           <input type="submit" value="Envoyer" />
         </form>
-        <i class="fas fa-times"></i>
+        <span class="close-btn">
+          <i class="fas fa-times"></i>
+        </span>
       </div>
     </div>
 

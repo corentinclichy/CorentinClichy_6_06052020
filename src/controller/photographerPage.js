@@ -1,6 +1,7 @@
 import fetchData from "../utils/fetchingData.js";
 import ElementFactory from "./ElementFactory.js";
-import mediaModal from "./mediaModal.js";
+import LightBoxModal from "./lightboxModal.js";
+import ContactModal from "./contactModal.js";
 
 class PhotographerPage {
   constructor() {
@@ -10,6 +11,8 @@ class PhotographerPage {
     this.totalLikesNumber = document.querySelector(".total-likes__number");
     this.fetchData = fetchData();
     this.elementFactory = new ElementFactory();
+    this.lightboxModal = new LightBoxModal();
+    this.contactModal = new ContactModal();
     this.totalLikes = 0;
 
     this.dropdownContent = document.querySelector(".dropdown-content");
@@ -19,9 +22,12 @@ class PhotographerPage {
     this.likes = [];
 
     //Lightbox Selectors
-    this.closeBtn = document.querySelector(".close-btn");
+    this.closeBtns = document.querySelectorAll(".close-btn");
     this.previousMedia = document.querySelector(".previous-btn");
     this.nextMedia = document.querySelector(".next-btn");
+
+    //ContactForm Selector
+    this.contactBtns = document.querySelectorAll(".contact-btn");
   }
 
   _getId() {
@@ -75,6 +81,14 @@ class PhotographerPage {
 
     this.photographerBio.innerHTML = bio;
     this.photographerPriceInfos.innerHTML = photographerPrice;
+
+    this.contactBtns = document.querySelectorAll(".contact-btn");
+
+    this.contactBtns.forEach((contactBtn) => {
+      contactBtn.addEventListener("click", () => {
+        this.contactModal.showModal(this.contactModal.contactElement);
+      });
+    });
   }
 
   _showMedias(medias) {
@@ -132,35 +146,29 @@ class PhotographerPage {
     });
 
     // OPEN MODAL FEATURE
-    const lightboxModal = new mediaModal();
 
     let allMedias = document.querySelectorAll(".photo-card__img");
 
-    // open modal
+    // open modal and display media
     allMedias.forEach((media) => {
       media.addEventListener("click", (e) => {
         const media_id = e.target.id;
-
-        lightboxModal.show(media_id, medias);
+        this.lightboxModal.showModal(this.lightboxModal.lightboxElement);
+        this.lightboxModal.showMedia(media_id, medias);
       });
     });
 
     //show previous Media
     this.previousMedia.addEventListener("click", () => {
-      lightboxModal.showPrevious(medias);
+      this.lightboxModal.showPrevious(medias);
     });
     //show next Media
     this.nextMedia.addEventListener("click", () => {
-      lightboxModal.showNext(medias);
-    });
-
-    // close modal
-    this.closeBtn.addEventListener("click", (e) => {
-      lightboxModal.hide();
+      this.lightboxModal.showNext(medias);
     });
   }
 
-  showFilter() {
+  showFilterOptions() {
     this.dropdownContent.classList.toggle("hide");
     this.dropdown.classList.toggle("open");
   }
@@ -168,12 +176,22 @@ class PhotographerPage {
 
 const photographerPage = new PhotographerPage();
 
-window.onload = async () => {
+window.onload = () => {
   photographerPage.fetchPhotographer();
+  console.log(photographerPage.contactBtns);
 };
 
 photographerPage.dropdownBtn.addEventListener("click", () => {
-  photographerPage.showFilter();
+  photographerPage.showFilterOptions();
 });
 
-window.addEventListener("DOMContentLoaded", () => {});
+photographerPage.closeBtns.forEach((closeBtn) => {
+  closeBtn.addEventListener("click", () => {
+    photographerPage.lightboxModal.hideModal(
+      photographerPage.lightboxModal.lightboxElement
+    );
+    photographerPage.lightboxModal.hideModal(
+      photographerPage.contactModal.contactElement
+    );
+  });
+});

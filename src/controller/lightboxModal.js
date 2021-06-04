@@ -1,7 +1,9 @@
 import ElementFactory from "./ElementFactory.js";
+import Modal from "./modal.js";
 
-class mediaModal {
+class LightBoxModal extends Modal {
   constructor() {
+    super();
     this.modal = document.querySelector(".lightbox");
     this.closeBtn = document.querySelector(".fa-times");
     this.modalImage = document.querySelector(".lightbox__content__img");
@@ -35,14 +37,14 @@ class mediaModal {
     this.lightBoxContent.innerHTML = lightBoxMedia;
   }
 
-  show(media_id, medias) {
+  showMedia(media_id, medias) {
     let idInt = parseInt(media_id);
 
     const selectedMedia = medias.find((media) => media.id === idInt);
 
     const { id, photographerId, video, image, title } = selectedMedia;
 
-    this.modal.style.display = "flex";
+    // this.modal.style.display = "flex";
 
     this._displayMedia(image, {
       id,
@@ -114,10 +116,6 @@ class mediaModal {
       title,
     });
   }
-
-  hide() {
-    this.modal.style.display = "none";
-  }
 }
 
-export default mediaModal;
+export default LightBoxModal;
