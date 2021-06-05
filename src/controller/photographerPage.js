@@ -178,7 +178,7 @@ const photographerPage = new PhotographerPage();
 
 window.onload = () => {
   photographerPage.fetchPhotographer();
-  console.log(photographerPage.contactBtns);
+  photographerPage.contactModal.validator.initialize();
 };
 
 photographerPage.dropdownBtn.addEventListener("click", () => {

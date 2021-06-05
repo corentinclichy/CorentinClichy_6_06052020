@@ -424,7 +424,6 @@ header .tags .row {
   display: flex;
   align-items: center;
   justify-content: center;
-  display: none;
 }
 .contact .contact__wrapper {
   display: flex;
@@ -459,45 +458,65 @@ header .tags .row {
   width: 100%;
   flex: 1;
   margin: auto;
-  margin-top: 30px;
+  margin-top: 15px;
 }
-.contact .contact__wrapper .contact__form label {
+.contact .contact__wrapper .contact__form .form-data {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.contact .contact__wrapper .contact__form .form-data label {
   font-size: 24px;
   color: #2c1919;
   align-self: start;
 }
-.contact .contact__wrapper .contact__form input,
-.contact .contact__wrapper .contact__form textarea {
+.contact .contact__wrapper .contact__form .form-data input,
+.contact .contact__wrapper .contact__form .form-data textarea {
   border: none;
-  padding: 15px 3px;
+  padding: 15px 10px;
   border-radius: 5px;
-  margin: 5px 0 10px 0;
-  width: 100%;
+  margin: 5px 0 0px 0;
+  width: 98%;
 }
-.contact .contact__wrapper .contact__form input:focus,
-.contact .contact__wrapper .contact__form textarea:focus {
+.contact .contact__wrapper .contact__form .form-data input:focus,
+.contact .contact__wrapper .contact__form .form-data textarea:focus {
   outline: none;
 }
-.contact .contact__wrapper .contact__form textarea {
+.contact .contact__wrapper .contact__form .form-data textarea {
   resize: none;
-  width: 100%;
   height: 30vh;
 }
 @media (min-width: 768px) {
-  .contact .contact__wrapper .contact__form textarea {
+  .contact .contact__wrapper .contact__form .form-data textarea {
     height: 15vh;
   }
 }
-.contact .contact__wrapper .contact__form input[type=submit] {
+.contact .contact__wrapper .contact__form .form-data input[type=submit] {
   width: 50%;
   background-color: #901c1c;
   color: white;
   font-size: 18px;
   font-weight: 700;
+  align-self: center;
+}
+.contact .contact__wrapper .contact__form .formData[data-error-visible=true] .text-control {
+  border: 2px solid #e54858;
+}
+.contact .contact__wrapper .contact__form .form-data[data-error]::after {
+  content: attr(data-error);
+  font-size: 0.5em;
+  color: #8d0e1b;
+  display: block;
+  margin-top: 8px;
+  margin-bottom: 7px;
+  text-align: right;
+  line-height: 0.3;
+  opacity: 1;
+  transition: 0.3s;
 }
 .contact .contact__wrapper .fa-times {
   position: absolute;
-  top: 10;
+  top: 10px;
   right: 10px;
   width: 32px;
   height: 32px;

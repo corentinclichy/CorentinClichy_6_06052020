@@ -90,15 +90,39 @@
           Mimi Keel
         </h1>
         <form action="submit" class="contact__form">
-          <label for="first-name">Prénom</label>
-          <input type="text" name="first-name" id="first-name" />
-          <label for="last-name">Nom</label>
-          <input type="text" name="last-name" id="last-name" />
-          <label for="email">Email</label>
-          <input type="email" name="email" id="email" />
-          <label for="message">Votre message</label>
-          <textarea name="message" id="message"></textarea>
-          <input type="submit" value="Envoyer" />
+          <div class="form-data">
+            <label for="first-name">Prénom</label>
+            <input
+              type="text"
+              name="first-name"
+              id="first-name"
+              class="text-control"
+            />
+          </div>
+          <div class="form-data">
+            <label for="last-name">Nom</label>
+            <input
+              type="text"
+              name="last-name"
+              id="last-name"
+              class="text-control"
+            />
+          </div>
+          <div class="form-data">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" class="text-control" />
+          </div>
+          <div class="form-data">
+            <label for="message">Votre message</label>
+            <textarea
+              name="message"
+              id="message"
+              class="text-control"
+            ></textarea>
+          </div>
+          <div class="form-data">
+            <input type="submit" value="Envoyer" />
+          </div>
         </form>
         <span class="close-btn">
           <i class="fas fa-times"></i>
