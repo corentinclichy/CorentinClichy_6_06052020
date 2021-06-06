@@ -8,10 +8,9 @@
   color: black;
   font-size: 25px;
   z-index: 2;
-  display: flex;
   align-items: center;
   justify-content: center;
-  // display: none;
+  display: none;
   .contact__wrapper {
     display: flex;
     flex-direction: column;
@@ -23,7 +22,8 @@
     background-color: #db8876;
     @include size("md") {
       max-width: 60%;
-      height: 80%;
+      height: fit-content;
+      max-height: 100%;
       border-radius: 5px;
     }
     @include size("lg") {
@@ -47,6 +47,7 @@
         width: 100%;
         display: flex;
         flex-direction: column;
+        margin-bottom: 0.2rem;
         label {
           font-size: 24px;
           color: #2c1919;
@@ -78,25 +79,27 @@
           color: white;
           font-size: 18px;
           font-weight: 700;
+          margin-top: 10px;
           align-self: center;
         }
-      }
+        &[data-error]::after {
+          content: attr(data-error);
+          font-size: 0.5em;
+          color: #8d0e1b;
+          margin-top: 8px;
+          text-align: right;
+          line-height: 0.2;
+          opacity: 0;
+          transition: 0.3s;
+        }
 
-      .formData[data-error-visible="true"] .text-control {
-        border: 2px solid #e54858;
-      }
+        &[data-error-visible="true"]::after {
+          opacity: 1;
+        }
 
-      .form-data[data-error]::after {
-        content: attr(data-error);
-        font-size: 0.5em;
-        color: #8d0e1b;
-        display: block;
-        margin-top: 8px;
-        margin-bottom: 7px;
-        text-align: right;
-        line-height: 0.3;
-        opacity: 1;
-        transition: 0.3s;
+        &[data-error-visible="true"] .text-control {
+          border: 2px solid #8d0e1b;
+        }
       }
     }
     .fa-times {

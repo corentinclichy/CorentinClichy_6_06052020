@@ -8,7 +8,7 @@
   color: $primary;
   font-size: 25px;
   z-index: 2;
-  display: none;
+  display: flex;
   align-items: center;
   // display: none;
 
@@ -16,31 +16,34 @@
     width: 92%;
     margin: auto;
     display: grid;
+    max-height: 100%;
     grid-template-columns: auto minmax(min-content, 500px) auto;
     align-items: center;
     justify-content: center;
     gap: 20px;
 
-    .lightbox__content__img {
-      max-height: 100%;
-      max-width: 100%;
-
-      img {
+    .lightbox__content {
+      .lightbox__content__img {
+        max-height: 90vh;
         width: 100%;
-        max-height: 100%;
-        object-fit: contain;
+        img {
+          width: 100%;
+          max-height: 90vh;
+          object-fit: contain;
+        }
+      }
+      .img__infos {
+        font-size: 16px;
+        margin-top: 7px;
       }
     }
 
-    .img__infos {
-      font-size: 16px;
-      margin-top: 7px;
-    }
     .lightbox__arrow-right {
       height: 100%;
       display: flex;
       align-items: center;
       position: relative;
+      flex: 1;
 
       .fa-times {
         position: absolute;

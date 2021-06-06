@@ -367,28 +367,29 @@ header .tags .row {
   color: #901c1c;
   font-size: 25px;
   z-index: 2;
-  display: none;
+  display: flex;
   align-items: center;
 }
 .lightbox .lightbox__wrapper {
   width: 92%;
   margin: auto;
   display: grid;
+  max-height: 100%;
   grid-template-columns: auto minmax(min-content, 500px) auto;
   align-items: center;
   justify-content: center;
   gap: 20px;
 }
-.lightbox .lightbox__wrapper .lightbox__content__img {
-  max-height: 100%;
-  max-width: 100%;
-}
-.lightbox .lightbox__wrapper .lightbox__content__img img {
+.lightbox .lightbox__wrapper .lightbox__content .lightbox__content__img {
+  max-height: 90vh;
   width: 100%;
-  max-height: 100%;
+}
+.lightbox .lightbox__wrapper .lightbox__content .lightbox__content__img img {
+  width: 100%;
+  max-height: 90vh;
   object-fit: contain;
 }
-.lightbox .lightbox__wrapper .img__infos {
+.lightbox .lightbox__wrapper .lightbox__content .img__infos {
   font-size: 16px;
   margin-top: 7px;
 }
@@ -397,6 +398,7 @@ header .tags .row {
   display: flex;
   align-items: center;
   position: relative;
+  flex: 1;
 }
 .lightbox .lightbox__wrapper .lightbox__arrow-right .fa-times {
   position: absolute;
@@ -421,9 +423,9 @@ header .tags .row {
   color: black;
   font-size: 25px;
   z-index: 2;
-  display: flex;
   align-items: center;
   justify-content: center;
+  display: none;
 }
 .contact .contact__wrapper {
   display: flex;
@@ -438,7 +440,8 @@ header .tags .row {
 @media (min-width: 768px) {
   .contact .contact__wrapper {
     max-width: 60%;
-    height: 80%;
+    height: fit-content;
+    max-height: 100%;
     border-radius: 5px;
   }
 }
@@ -464,6 +467,7 @@ header .tags .row {
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin-bottom: 0.2rem;
 }
 .contact .contact__wrapper .contact__form .form-data label {
   font-size: 24px;
@@ -497,22 +501,24 @@ header .tags .row {
   color: white;
   font-size: 18px;
   font-weight: 700;
+  margin-top: 10px;
   align-self: center;
-}
-.contact .contact__wrapper .contact__form .formData[data-error-visible=true] .text-control {
-  border: 2px solid #e54858;
 }
 .contact .contact__wrapper .contact__form .form-data[data-error]::after {
   content: attr(data-error);
   font-size: 0.5em;
   color: #8d0e1b;
-  display: block;
   margin-top: 8px;
-  margin-bottom: 7px;
   text-align: right;
-  line-height: 0.3;
-  opacity: 1;
+  line-height: 0.2;
+  opacity: 0;
   transition: 0.3s;
+}
+.contact .contact__wrapper .contact__form .form-data[data-error-visible=true]::after {
+  opacity: 1;
+}
+.contact .contact__wrapper .contact__form .form-data[data-error-visible=true] .text-control {
+  border: 2px solid #8d0e1b;
 }
 .contact .contact__wrapper .fa-times {
   position: absolute;

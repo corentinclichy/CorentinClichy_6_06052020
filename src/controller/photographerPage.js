@@ -28,6 +28,7 @@ class PhotographerPage {
 
     //ContactForm Selector
     this.contactBtns = document.querySelectorAll(".contact-btn");
+    this.submitBtn = document.querySelector("input[type=submit]");
   }
 
   _getId() {
@@ -194,4 +195,8 @@ photographerPage.closeBtns.forEach((closeBtn) => {
       photographerPage.contactModal.contactElement
     );
   });
+});
+
+photographerPage.submitBtn.addEventListener("click", () => {
+  photographerPage.contactModal.submitForm();
 });
