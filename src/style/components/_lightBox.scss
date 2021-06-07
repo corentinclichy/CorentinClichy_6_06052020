@@ -10,7 +10,7 @@
   z-index: 2;
   display: flex;
   // align-items: center;
-  // display: none;
+  display: none;
 
   .lightbox__wrapper {
     width: fit-content;
@@ -46,20 +46,35 @@
       align-items: center;
       position: relative;
       flex: 1;
-
-      .fa-times {
-        position: absolute;
-        align-self: center;
-        top: 0;
-        cursor: pointer;
+      color: $primary;
+      .close-btn {
+        background-color: transparent;
+        font-size: 1.5rem;
+        .fa-times {
+          position: absolute;
+          align-self: center;
+          top: 0;
+          color: $primary;
+        }
       }
-      .fa-chevron-right {
-        cursor: pointer;
+
+      .next-btn {
+        color: $primary;
+        background-color: transparent;
+        font-size: 1.5rem;
+        .fa-chevron-right {
+          color: $primary;
+        }
       }
     }
     .lightbox__arrow-left {
-      .fa-chevron-left {
-        cursor: pointer;
+      .previous-btn {
+        color: $primary;
+        background-color: transparent;
+        font-size: 1.5rem;
+        i {
+          color: $primary;
+        }
       }
     }
   }

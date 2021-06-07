@@ -53,8 +53,10 @@ class HomePage {
     let tags = document.querySelectorAll(".tag");
     tags.forEach((tag) => {
       tag.classList.remove("active");
+      tag.removeAttribute("aria-current");
     });
     selectedTag && selectedTag.classList.add("active");
+    selectedTag && selectedTag.setAttribute("aria-current", "page");
   }
 
   showphotographer() {

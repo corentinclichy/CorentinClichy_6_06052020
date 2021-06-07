@@ -20,8 +20,8 @@ class Markup {
       <figcaption class="photo-card__infos">
         <p>${title}</p>
         <div class="like">
-          <span>${likes}</span>
-          <button class="like__btn">
+          <span aria-label="likes">${likes}</span>
+          <button class="like__btn" aria-label="like">
             <i class="fas fa-heart"></i>
           </button>
         </div>
@@ -40,7 +40,7 @@ class Markup {
   }) {
     return `
         <div class="showcase__photo-card">
-        <figure class="photo-card__img" >
+        <figure class="photo-card__img" role="Image Link" aria-label="${altText},closeup view" >
           <img
             src="../../public/assets/Images/${photographerId}/${image_url}"
             alt="${altText}"
@@ -49,7 +49,7 @@ class Markup {
         </figure>
         <figcaption class="photo-card__infos">
           <p>${title}</p>
-          <div class="like">
+          <div class="like" aria-label="likes">
             <span class='like__numbers'>${likes}</span>
             <button class="like__btn">
                <i class="fas fa-heart"></i>
@@ -154,11 +154,11 @@ class Markup {
             ${tagline}
           </p>
           <p class="card-photographer__price">${price}€/j</p>
-          <div class="card-photographer__tags">
+          <div class="card-photographer__tags" role="Links" aria-label="Liste des tags de ce photographe">
           ${tags
             .map((tag) => {
               return `
-                <a class="tag" href="index.html?tag=${tag}">#${tag}</a>
+                <a class="tag" aria-label="Tag ${tag}" href="index.html?tag=${tag}">#${tag} </a>
               `;
             })
             .join("")}
@@ -169,9 +169,9 @@ class Markup {
 
   priceInfosPhotographerMarkup({ price, totalLikes }) {
     return `
-        <div class="photograher__price__total-likes">
-          <span class="total-likes__number">${totalLikes}</span>
-          <i class="fas fa-heart"></i>
+        <div class="photograher__price__total-likes" role="secondary-content" aria-label="Nombre total de like et tarif journalier">
+          <span aria-label="Nombre de likes"class="total-likes__number">${totalLikes}</span>
+          <i aria-label="likes" class="fas fa-heart"></i>
         </div>
         <p>${price}€/j</p>
           `;

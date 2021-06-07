@@ -149,7 +149,6 @@ class PhotographerPage {
     });
 
     // OPEN MODAL FEATURE
-
     let allMedias = document.querySelectorAll(".photo-card__img");
 
     // open modal and display media
@@ -169,11 +168,41 @@ class PhotographerPage {
     this.nextMedia.addEventListener("click", () => {
       this.lightboxModal.showNext(medias);
     });
+
+    document.addEventListener("keydown", (e) => {
+      const keyCode = e.keycode ? e.keycode : e.which;
+      console.log(keyCode);
+
+      console.log(
+        this.lightboxModal.lightboxElement.getAttribute("aria-hidden")
+      );
+
+      if (
+        this.lightboxModal.lightboxElement.getAttribute("aria-hidden") ===
+          ("false" || null) &&
+        keyCode === 37
+      ) {
+        this.lightboxModal.showPrevious(medias);
+      } else if (
+        this.lightboxModal.lightboxElement.getAttribute("aria-hidden") ===
+          ("false" || null) &&
+        keyCode === 39
+      ) {
+        this.lightboxModal.showNext(medias);
+      }
+    });
   }
 
   showFilterOptions() {
     this.dropdownContent.classList.toggle("hide");
     this.dropdown.classList.toggle("open");
+
+    //ACCESSIBILITY
+    if (this.dropdownContent.classList.contains("hide")) {
+      this.dropdownBtn.setAttribute("aria-expanded", false);
+    } else {
+      this.dropdownBtn.setAttribute("aria-expanded", true);
+    }
   }
 }
 
@@ -197,6 +226,30 @@ photographerPage.closeBtns.forEach((closeBtn) => {
       photographerPage.contactModal.contactElement
     );
   });
+});
+
+document.getElementsByTagName("body")[0].addEventListener("keydown", (e) => {
+  const keyCode = e.keycode ? e.keycode : e.which;
+
+  if (
+    ((photographerPage.lightboxModal.lightboxElement.getAttribute(
+      "aria-hidden"
+    ) === "false" ||
+      null) &&
+      keyCode === 27) ||
+    ((photographerPage.contactModal.contactElement.getAttribute(
+      "aria-hidden"
+    ) === "false" ||
+      null) &&
+      keyCode === 27)
+  ) {
+    photographerPage.lightboxModal.hideModal(
+      photographerPage.lightboxModal.lightboxElement
+    );
+    photographerPage.lightboxModal.hideModal(
+      photographerPage.contactModal.contactElement
+    );
+  }
 });
 
 photographerPage.submitBtn.addEventListener("click", () => {

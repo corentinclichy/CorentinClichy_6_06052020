@@ -368,6 +368,7 @@ header .tags .row {
   font-size: 25px;
   z-index: 2;
   display: flex;
+  display: none;
 }
 .lightbox .lightbox__wrapper {
   width: fit-content;
@@ -402,18 +403,33 @@ header .tags .row {
   align-items: center;
   position: relative;
   flex: 1;
+  color: #901c1c;
 }
-.lightbox .lightbox__wrapper .lightbox__arrow-right .fa-times {
+.lightbox .lightbox__wrapper .lightbox__arrow-right .close-btn {
+  background-color: transparent;
+  font-size: 1.5rem;
+}
+.lightbox .lightbox__wrapper .lightbox__arrow-right .close-btn .fa-times {
   position: absolute;
   align-self: center;
   top: 0;
-  cursor: pointer;
+  color: #901c1c;
 }
-.lightbox .lightbox__wrapper .lightbox__arrow-right .fa-chevron-right {
-  cursor: pointer;
+.lightbox .lightbox__wrapper .lightbox__arrow-right .next-btn {
+  color: #901c1c;
+  background-color: transparent;
+  font-size: 1.5rem;
 }
-.lightbox .lightbox__wrapper .lightbox__arrow-left .fa-chevron-left {
-  cursor: pointer;
+.lightbox .lightbox__wrapper .lightbox__arrow-right .next-btn .fa-chevron-right {
+  color: #901c1c;
+}
+.lightbox .lightbox__wrapper .lightbox__arrow-left .previous-btn {
+  color: #901c1c;
+  background-color: transparent;
+  font-size: 1.5rem;
+}
+.lightbox .lightbox__wrapper .lightbox__arrow-left .previous-btn i {
+  color: #901c1c;
 }
 
 .contact {

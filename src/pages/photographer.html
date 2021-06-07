@@ -14,14 +14,18 @@
   </head>
   <body>
     <header>
-      <a href="./../index.html">
-        <figure class="header__logo">
-          <img src="../../public/assets/logo.svg" alt="" class="logo" />
-        </figure>
-      </a>
+      <button class="header__logo" role="Image link" aria-label="Image link">
+        <a href="./../index.html" role="Image link" aria-label="Image link">
+          <img
+            src="../../public/assets/logo.svg"
+            alt="FishEye Home Page"
+            class="logo"
+          />
+        </a>
+      </button>
     </header>
 
-    <main>
+    <main role="main-content" class="main-content">
       <section class="photographer-infos">
         <!-- Photoghrapher Bio Markup -->
       </section>
@@ -29,7 +33,12 @@
         <p class="filters__name">Trier par</p>
 
         <div class="dropdown">
-          <button class="dropbtn">
+          <button
+            role="listbox"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+            class="dropbtn"
+          >
             Popularité
             <i class="fas fa-chevron-up"></i>
           </button>
@@ -47,21 +56,35 @@
       <div class="photograher__price">
         <!-- PRICE AND LIKES INFOS -->
       </div>
-      <button class="contact-btn contact-btn--mobile modal-btn">
+      <button
+        class="contact-btn contact-btn--mobile modal-btn"
+        role="button"
+        aria-label="Contact Me"
+      >
         Contactez-moi
       </button>
     </main>
 
     <!-- MODAL: LIGHTBOX / CONTACT MODAL -->
     <!-- LIGHTBOX -->
-    <div class="lightbox modal">
+    <div
+      class="lightbox modal"
+      role="dialog"
+      aria-label="Carrousel of photos and videos"
+    >
       <div class="lightbox__wrapper">
         <div class="lightbox__arrow-left">
-          <span class="previous-btn">
+          <button
+            class="previous-btn"
+            role="button"
+            aria-label="photographe précèdente"
+            aria-hidden="true"
+          >
             <i class="fas fa-chevron-left"></i>
-          </span>
+          </button>
+          <p class="sr-only">Photographie Précédente</p>
         </div>
-        <div class="lightbox__content">
+        <div class="lightbox__content" aria-label="photographie">
           <figure class="lightbox__content__img">
             <img
               src="../../public/assets/Images/930/Architecture_Horseshoe.jpg"
@@ -73,60 +96,83 @@
           </figcaption>
         </div>
         <div class="lightbox__arrow-right">
-          <span class="close-btn">
+          <button
+            class="close-btn"
+            role="button"
+            aria-label="Fermer la fenêtre"
+          >
             <i class="fas fa-times"></i>
-          </span>
-          <span class="next-btn">
+          </button>
+          <button
+            class="next-btn"
+            role="button"
+            aria-label="photographe suivante"
+            aria-hidden="true"
+          >
             <i class="fas fa-chevron-right"></i>
-          </span>
+          </button>
+          <p class="sr-only">Photographie Suivante</p>
         </div>
       </div>
     </div>
     <!-- CONTACT FORM -->
-    <div class="contact modal">
+    <div class="contact modal" role="dialog" aria-describedby="modalTitle">
       <div class="contact__wrapper">
-        <h1>
+        <h1 id="modalTitle">
           Contactez-moi <br />
           Mimi Keel
         </h1>
         <form action="submit" class="contact__form">
           <div class="form-data">
-            <label for="first-name">Prénom</label>
+            <label id="first-name" for="first-name">Prénom</label>
             <input
               type="text"
               name="first-name"
               id="first-name"
               class="text-control"
+              aria-required="true"
+              aria-labelledby="first-name"
             />
           </div>
           <div class="form-data">
-            <label for="last-name">Nom</label>
+            <label for="last-name" id="last-name">Nom</label>
             <input
               type="text"
               name="last-name"
               id="last-name"
               class="text-control"
+              aria-required="true"
+              aria-labelledby="last-name"
             />
           </div>
           <div class="form-data">
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" class="text-control" />
+            <label for="email" id="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              aria-labelledby="email"
+              class="text-control"
+              aria-required="true"
+            />
           </div>
           <div class="form-data">
-            <label for="message">Votre message</label>
+            <label for="message" id="message">Votre message</label>
             <textarea
               name="message"
               id="message"
               class="text-control"
+              aria-labelledby="message"
+              aria-required="true"
             ></textarea>
           </div>
           <div class="form-data">
             <input type="submit" value="Envoyer" />
           </div>
         </form>
-        <span class="close-btn">
+        <button class="close-btn" role="button" aria-label="Close button">
           <i class="fas fa-times"></i>
-        </span>
+        </button>
       </div>
     </div>
 

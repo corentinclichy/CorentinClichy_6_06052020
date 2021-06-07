@@ -3,7 +3,6 @@ import Markup from "./markup.js";
 class ElementFactory {
   constructor() {
     this.createMediaGallery = function (type, media) {
-      console.log(media);
       let markup;
       let video;
       let image;
