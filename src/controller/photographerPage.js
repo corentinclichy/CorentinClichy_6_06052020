@@ -75,10 +75,10 @@ class PhotographerPage {
       image_url: portrait,
     });
 
-    const photographerPrice = this.elementFactory.createPriceInfos(
-      price,
-      this.totalLikes
-    );
+    const photographerPrice = this.elementFactory.createPriceInfos({
+      price: price,
+      totalLikes: this.totalLikes,
+    });
 
     this.photographerBio.innerHTML = bio;
     this.photographerPriceInfos.innerHTML = photographerPrice;
@@ -95,33 +95,35 @@ class PhotographerPage {
   _showMedias(medias) {
     this.showcaseContainer.innerHTML = "";
 
-    medias.map(({ photographerId, image, video, likes, title, id }) => {
-      let mediaList;
-      if (!image) {
-        mediaList = this.elementFactory.createMediaGallery(
-          "video",
-          photographerId,
-          video,
-          likes,
-          title,
-          id
-        );
+    medias.map(
+      ({ photographerId, image, video, likes, title, id, altText }) => {
+        let mediaList;
+        if (!image) {
+          mediaList = this.elementFactory.createMediaGallery("video", {
+            photographerId: photographerId,
+            video_url: video,
+            likes: likes,
+            title: title,
+            id: id,
+            altText: altText,
+          });
 
-        this.totalLikes += likes;
-      } else {
-        mediaList = this.elementFactory.createMediaGallery(
-          "image",
-          photographerId,
-          image,
-          likes,
-          title,
-          id
-        );
-        this.totalLikes += likes;
+          this.totalLikes += likes;
+        } else {
+          mediaList = this.elementFactory.createMediaGallery("image", {
+            photographerId: photographerId,
+            image_url: image,
+            likes: likes,
+            title: title,
+            id: id,
+            altText: altText,
+          });
+          this.totalLikes += likes;
+        }
+
+        this.showcaseContainer.innerHTML += mediaList;
       }
-
-      this.showcaseContainer.innerHTML += mediaList;
-    });
+    );
 
     // LIKE FEATURE
     this.likeBtns = document.querySelectorAll(".like__btn");

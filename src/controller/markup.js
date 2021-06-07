@@ -1,35 +1,49 @@
 class Markup {
-  mediaGalleryVideoMarkup(photographer_id, image_url, likes, title, id) {
+  mediaGalleryVideoMarkup({
+    photographerId,
+    video_url,
+    likes,
+    title,
+    id,
+    altText,
+  }) {
     return `
-          <div class="showcase__photo-card">
-          <figure class="photo-card__img" >
-          <video
-          preload="metadata"
-          id=${id}>
-          <source src="../../public/assets/Images/${photographer_id}/${image_url}#t=0.1" type="video/mp4">
+    <article class="showcase__photo-card" aria-label="photo card">
+      <figure class="photo-card__img" >
+        <video
+        preload="metadata"
+        id=${id}
+        alt="${altText}">
+          <source src="../../public/assets/Images/${photographerId}/${video_url}#t=0.1" type="video/mp4">
         </video>
-      
-          </figure>
-          <figcaption class="photo-card__infos">
-            <p>${title}</p>
-            <div class="like">
-              <span>${likes}</span>
-              <button class="like__btn">
-               <i class="fas fa-heart"></i>
-              </button>
-            </div>
-          </figcaption>
+      </figure>
+      <figcaption class="photo-card__infos">
+        <p>${title}</p>
+        <div class="like">
+          <span>${likes}</span>
+          <button class="like__btn">
+            <i class="fas fa-heart"></i>
+          </button>
         </div>
+      </figcaption>
+    </article>
               `;
   }
 
-  mediaGalleryImageMarkup(photographer_id, image_url, likes, title, id) {
+  mediaGalleryImageMarkup({
+    photographerId,
+    image_url,
+    likes,
+    title,
+    id,
+    altText,
+  }) {
     return `
         <div class="showcase__photo-card">
         <figure class="photo-card__img" >
           <img
-            src="../../public/assets/Images/${photographer_id}/${image_url}"
-            alt=""
+            src="../../public/assets/Images/${photographerId}/${image_url}"
+            alt="${altText}"
             id=${id}
           />
         </figure>
@@ -77,8 +91,7 @@ class Markup {
     `;
   }
 
-  photographerBioMarkup(photographer) {
-    const { name, city, country, tagline, tags, image_url } = photographer;
+  photographerBioMarkup({ name, city, country, tagline, tags, image_url }) {
     return `
         <div class="panel-left">
         <div class="wrap">
@@ -117,39 +130,47 @@ class Markup {
         `;
   }
 
-  photographerCardMarkup(photographer) {
-    const { id, image_url, name, city, country, tagline, price, tags } =
-      photographer;
+  photographerCardMarkup({
+    id,
+    image_url,
+    name,
+    city,
+    country,
+    tagline,
+    price,
+    tags,
+    altText,
+  }) {
     return `
-          <div class="cards-container__card-photographer">
-              <a href="pages/photographer.html?id=${id}" class="card-photographer__link">
-                <figure class="card-photographer__img">
-                  <img src="../public/assets/Images/Photographers/${image_url}" alt="" />
-                </figure>
-                <h2>${name}</h2>
-              </a>
-              <p class="card-photographer__location">${city}, ${country}</p>
-              <p class="card-photographer__description">
-                ${tagline}
-              </p>
-              <p class="card-photographer__price">${price}€/j</p>
-              <div class="card-photographer__tags">
-              ${tags
-                .map((tag) => {
-                  return `
-                    <a class="tag" href="index.html?tag=${tag}">#${tag}</a>
-                  `;
-                })
-                .join("")}
-              </div>
-            </div>
+      <artile class="cards-container__card-photographer" aria-label='photographe'>
+          <a href="pages/photographer.html?id=${id}" class="card-photographer__link">
+            <figure class="card-photographer__img">
+              <img src="../public/assets/Images/Photographers/${image_url}" alt="${altText}" />
+            </figure>
+            <h2>${name}</h2>
+          </a>
+          <p class="card-photographer__location">${city}, ${country}</p>
+          <p class="card-photographer__description">
+            ${tagline}
+          </p>
+          <p class="card-photographer__price">${price}€/j</p>
+          <div class="card-photographer__tags">
+          ${tags
+            .map((tag) => {
+              return `
+                <a class="tag" href="index.html?tag=${tag}">#${tag}</a>
+              `;
+            })
+            .join("")}
+          </div>
+        </artile>
       `;
   }
 
-  priceInfosPhotographerMarkup(price, likes) {
+  priceInfosPhotographerMarkup({ price, totalLikes }) {
     return `
         <div class="photograher__price__total-likes">
-          <span class="total-likes__number">${likes}</span>
+          <span class="total-likes__number">${totalLikes}</span>
           <i class="fas fa-heart"></i>
         </div>
         <p>${price}€/j</p>

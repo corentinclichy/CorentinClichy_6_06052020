@@ -8,14 +8,14 @@
     <link rel="stylesheet" href="../public/style/main.css" />
   </head>
   <body>
-    <header>
+    <header role="banner">
       <a href="./">
         <figure class="header__logo">
-          <img src="../public/assets/logo.svg" alt="" class="logo" />
+          <img src="../public/assets/logo.svg" alt="logo FishEye" class="logo" />
         </figure>
       </a>
       <h1>Nos photographes</h1>
-      <nav class="tags">
+      <nav class="tags" aria-label="header navigation">
         <div class="row">
           <a class="tag" id='portrait' href="index.html?tag=portrait">#Portrait</a>
             <a class="tag" id='art' href="index.html?tag=art">#Art</a>
@@ -32,7 +32,7 @@
       </nav>
     </header>
 
-    <main class="cards-container">
+    <main class="cards-container" role="Liste des photographes" aria-label="Liste des photographes">
       <!-- CONTENT -->
     </main>
 

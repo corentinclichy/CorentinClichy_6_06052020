@@ -5,3 +5,15 @@ const fetchData = async () => {
 };
 
 export default fetchData;
+
+export const createNewAttribute = async () => {
+  fetchData().then(({ media }) => {
+    let mediaWithAlt = [];
+    media.map((media) => {
+      mediaWithAlt.push({ ...media, altText: media.title });
+    });
+    console.log(mediaWithAlt);
+    const mediaWithAltJSON = JSON.stringify(mediaWithAlt);
+    console.log(mediaWithAltJSON);
+  });
+};

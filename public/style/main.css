@@ -368,25 +368,28 @@ header .tags .row {
   font-size: 25px;
   z-index: 2;
   display: flex;
-  align-items: center;
 }
 .lightbox .lightbox__wrapper {
-  width: 92%;
+  width: fit-content;
+  width: 90%;
   margin: auto;
   display: grid;
-  max-height: 100%;
+  height: fit-content;
+  max-height: 90vh;
   grid-template-columns: auto minmax(min-content, 500px) auto;
   align-items: center;
   justify-content: center;
   gap: 20px;
 }
+.lightbox .lightbox__wrapper .lightbox__content {
+  height: 100%;
+}
 .lightbox .lightbox__wrapper .lightbox__content .lightbox__content__img {
-  max-height: 90vh;
-  width: 100%;
+  height: 80vh;
 }
 .lightbox .lightbox__wrapper .lightbox__content .lightbox__content__img img {
   width: 100%;
-  max-height: 90vh;
+  height: 100%;
   object-fit: contain;
 }
 .lightbox .lightbox__wrapper .lightbox__content .img__infos {

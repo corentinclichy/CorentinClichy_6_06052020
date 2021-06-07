@@ -2,38 +2,21 @@ import Markup from "./markup.js";
 
 class ElementFactory {
   constructor() {
-    this.createMediaGallery = function (
-      type,
-      photographer_id,
-      image_url,
-      likes,
-      title,
-      id
-    ) {
-      let media;
+    this.createMediaGallery = function (type, media) {
+      console.log(media);
       let markup;
+      let video;
+      let image;
 
       if (type === "video") {
-        media = new Markup();
-        markup = media.mediaGalleryVideoMarkup(
-          photographer_id,
-          image_url,
-          likes,
-          title,
-          id
-        );
+        markup = new Markup();
+        video = markup.mediaGalleryVideoMarkup(media);
+        return video;
       } else if (type === "image") {
-        media = new Markup();
-        markup = media.mediaGalleryImageMarkup(
-          photographer_id,
-          image_url,
-          likes,
-          title,
-          id
-        );
+        markup = new Markup();
+        image = markup.mediaGalleryImageMarkup(media);
+        return image;
       }
-
-      return markup;
     };
 
     this.createlightboxMedia = function (type, media) {
@@ -64,10 +47,10 @@ class ElementFactory {
       return markup;
     };
 
-    this.createPriceInfos = function (price, likes) {
-      let media = new Markup();
-      let markup = media.priceInfosPhotographerMarkup(price, likes);
-      return markup;
+    this.createPriceInfos = function (obj) {
+      let markup = new Markup();
+      let priceInfoMarkup = markup.priceInfosPhotographerMarkup(obj);
+      return priceInfoMarkup;
     };
   }
 }
