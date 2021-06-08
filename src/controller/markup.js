@@ -68,10 +68,11 @@ class Markup {
               alt=""
               id=${id}
             />
+            <figcaption class="img__infos">
+              <p class="">${title}</p>
+            </figcaption>
     </figure>
-    <figcaption class="img__infos">
-            <p class="">${title}</p>
-    </figcaption>
+    
 
     `;
   }
@@ -84,10 +85,10 @@ class Markup {
     id=${id}
     controls>
     <source src="../../public/assets/Images/${photographerId}/${video}#t=0.1" type="video/mp4">
-    </figure>
     <figcaption class="img__infos">
             <p class="">${title}</p>
     </figcaption>
+    </figure>
     `;
   }
 

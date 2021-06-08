@@ -367,7 +367,6 @@ header .tags .row {
   color: #901c1c;
   font-size: 25px;
   z-index: 2;
-  display: flex;
   display: none;
 }
 .lightbox .lightbox__wrapper {
