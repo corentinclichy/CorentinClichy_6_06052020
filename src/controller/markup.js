@@ -122,7 +122,7 @@ class Markup {
         <a href="#" class="card-photographer__link">
           <figure class="card-photographer__img">
             <img
-              src="../../../public/assets/Images/Photographers/${image_url}"
+              src="../../public/assets/Images/Photographers/${image_url}"
               alt=""
             />
           </figure>
