@@ -1,0 +1,80 @@
+.lightbox {
+  height: 100vh;
+  background-color: rgba(223, 223, 223, 0.974);
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: $primary;
+  font-size: 25px;
+  z-index: 2;
+  display: flex;
+  // align-items: center;
+
+  .lightbox__wrapper {
+    width: fit-content;
+    width: 90%;
+    margin: auto;
+    display: grid;
+    height: fit-content;
+    max-height: 90vh;
+    grid-template-columns: auto minmax(min-content, 500px) auto;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    .lightbox__content {
+      height: 100%;
+      .lightbox__content__img {
+        height: 80vh;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+      .img__infos {
+        font-size: 16px;
+        margin-top: 7px;
+      }
+    }
+
+    .lightbox__arrow-right {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      position: relative;
+      flex: 1;
+      color: $primary;
+      .close-btn {
+        background-color: transparent;
+        font-size: 1.5rem;
+        .fa-times {
+          position: absolute;
+          align-self: center;
+          top: 0;
+          color: $primary;
+        }
+      }
+
+      .next-btn {
+        color: $primary;
+        background-color: transparent;
+        font-size: 1.5rem;
+        .fa-chevron-right {
+          color: $primary;
+        }
+      }
+    }
+    .lightbox__arrow-left {
+      .previous-btn {
+        color: $primary;
+        background-color: transparent;
+        font-size: 1.5rem;
+        i {
+          color: $primary;
+        }
+      }
+    }
+  }
+}
