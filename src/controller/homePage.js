@@ -63,7 +63,7 @@ class HomePage {
     let tag = this._getTag();
 
     if (tag === null) {
-      fetchData().then(({ photographers }) => {
+      fetchData("./ressources/data.json").then(({ photographers }) => {
         this._displayPhotographer(photographers);
       });
     } else {

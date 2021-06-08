@@ -9,7 +9,6 @@ class PhotographerPage {
     this.photographerPriceInfos = document.querySelector(".photograher__price");
     this.showcaseContainer = document.querySelector(".showcase");
     this.totalLikesNumber = document.querySelector(".total-likes__number");
-    this.fetchData = fetchData();
     this.elementFactory = new ElementFactory();
     this.lightboxModal = new LightBoxModal();
     this.contactModal = new ContactModal();
@@ -48,7 +47,7 @@ class PhotographerPage {
 
   fetchPhotographer() {
     const id = this._getId();
-    fetchData().then(({ photographers, media }) => {
+    fetchData("../ressources/data.json").then(({ photographers, media }) => {
       // Photographer infos
 
       // medias of the photographers

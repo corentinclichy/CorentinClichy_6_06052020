@@ -1,5 +1,5 @@
-const fetchData = async () => {
-  const response = await fetch("../ressources/data.json");
+const fetchData = async (path) => {
+  const response = await fetch(path);
   const photographer = await response.json();
   return photographer;
 };
