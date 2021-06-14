@@ -1,0 +1,55 @@
+.filters {
+  font-size: 14px;
+  .filters__name {
+    font-weight: 700;
+    margin-right: 10px;
+  }
+  .dropdown {
+    width: fit-content;
+    padding: 0 10px;
+    background-color: $primary;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: relative;
+
+    .dropbtn {
+      color: white;
+      background-color: $primary;
+      font-weight: 700;
+      padding: 14px;
+      .fa-chevron-up {
+        margin-left: 18px;
+      }
+    }
+    .dropdown-content {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      width: 100%;
+      z-index: 1;
+      top: 20;
+      left: 0;
+      background-color: $primary;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      a {
+        color: white;
+        width: 70%;
+        margin: auto;
+        background-color: $primary;
+        border-top: 1px solid white;
+        font-weight: 700;
+        padding: 14px;
+      }
+    }
+    .hide {
+      display: none;
+    }
+  }
+  .open {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+}

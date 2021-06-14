@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FishEye</title>
+    <link rel="stylesheet" href="../../public/style/main.css" />
+    <!-- Our project just needs Font Awesome solid + brand -->
+    <script
+      defer
+      src="../../node_modules/@fortawesome/fontawesome-free/js/all.js"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <button class="header__logo" role="Image link" aria-label="Image link">
+        <a href="../index.html" role="Image link" aria-label="Image link">
+          <img
+            src="../../public/assets/logo.svg"
+            alt="FishEye Home Page"
+            class="logo"
+          />
+        </a>
+      </button>
+    </header>
+
+    <main role="main-content" class="main-content">
+      <section class="photographer-infos">
+        <!-- Photoghrapher Bio Markup -->
+      </section>
+      <section class="filters">
+        <p class="filters__name">Trier par</p>
+
+        <div class="dropdown">
+          <button
+            role="listbox"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+            class="dropbtn"
+          >
+            Popularité
+            <i class="fas fa-chevron-up"></i>
+          </button>
+          <div class="dropdown-content hide">
+            <a href="#">Date</a>
+            <a href="#">Titre</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="showcase">
+        <!-- MediaList markup -->
+      </section>
+
+      <div class="photograher__price">
+        <!-- PRICE AND LIKES INFOS -->
+      </div>
+      <button
+        class="contact-btn contact-btn--mobile modal-btn"
+        role="button"
+        aria-label="Contact Me"
+      >
+        Contactez-moi
+      </button>
+    </main>
+
+    <!-- MODAL: LIGHTBOX / CONTACT MODAL -->
+    <!-- LIGHTBOX -->
+    <div
+      class="lightbox modal"
+      role="dialog"
+      aria-label="Carrousel of photos and videos"
+    >
+      <div class="lightbox__wrapper">
+        <div class="lightbox__arrow-left">
+          <button
+            class="previous-btn"
+            role="button"
+            aria-label="photographe précèdente"
+            aria-hidden="true"
+          >
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <p class="sr-only">Photographie Précédente</p>
+        </div>
+        <div class="lightbox__content" aria-label="photographie">
+          <figure class="lightbox__content__img">
+            <img
+              src="../../public/assets/Images/930/Architecture_Horseshoe.jpg"
+              alt=""
+            />
+          </figure>
+          <figcaption class="img__infos">
+            <p class="">Arc en ciel</p>
+          </figcaption>
+        </div>
+        <div class="lightbox__arrow-right">
+          <button
+            class="close-btn"
+            role="button"
+            aria-label="Fermer la fenêtre"
+          >
+            <i class="fas fa-times"></i>
+          </button>
+          <button
+            class="next-btn"
+            role="button"
+            aria-label="photographe suivante"
+            aria-hidden="true"
+          >
+            <i class="fas fa-chevron-right"></i>
+          </button>
+          <p class="sr-only">Photographie Suivante</p>
+        </div>
+      </div>
+    </div>
+    <!-- CONTACT FORM -->
+    <div class="contact modal" role="dialog" aria-describedby="modalTitle">
+      <div class="contact__wrapper">
+        <h1 id="modalTitle">
+          Contactez-moi <br />
+          Mimi Keel
+        </h1>
+        <form action="submit" class="contact__form">
+          <div class="form-data">
+            <label id="first-name" for="first-name">Prénom</label>
+            <input
+              type="text"
+              name="first-name"
+              id="first-name"
+              class="text-control"
+              aria-required="true"
+              aria-labelledby="first-name"
+            />
+          </div>
+          <div class="form-data">
+            <label for="last-name" id="last-name">Nom</label>
+            <input
+              type="text"
+              name="last-name"
+              id="last-name"
+              class="text-control"
+              aria-required="true"
+              aria-labelledby="last-name"
+            />
+          </div>
+          <div class="form-data">
+            <label for="email" id="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              aria-labelledby="email"
+              class="text-control"
+              aria-required="true"
+            />
+          </div>
+          <div class="form-data">
+            <label for="message" id="message">Votre message</label>
+            <textarea
+              name="message"
+              id="message"
+              class="text-control"
+              aria-labelledby="message"
+              aria-required="true"
+            ></textarea>
+          </div>
+          <div class="form-data">
+            <input type="submit" value="Envoyer" />
+          </div>
+        </form>
+        <button class="close-btn" role="button" aria-label="Close button">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+
+    <script type="module" src="../controller/photographerPage.js"></script>
+  </body>
+</html>
