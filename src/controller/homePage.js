@@ -63,19 +63,11 @@ class HomePage {
     let tag = this._getTag();
 
     if (tag === null) {
-<<<<<<< HEAD
-      fetchData("../ressources/data.json").then((photographers) => {
+      fetchData("../src/ressources/data.json").then((photographers) => {
         this._displayPhotographer(photographers);
       });
     } else {
       fetchData("../src/ressources/data.json").then(({ photographers }) => {
-=======
-      fetchData("./ressources/data.json").then(({ photographers }) => {
-        this._displayPhotographer(photographers);
-      });
-    } else {
-      fetchData().then(({ photographers }) => {
->>>>>>> 91efbb4cba74db77ec4a27888ac298b691c2098b
         let filterdPhotographer = [];
         photographers.map((photographer) => {
           if (photographer.tags.includes(tag)) {
