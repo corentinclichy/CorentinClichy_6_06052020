@@ -1,5 +1,5 @@
-import Modal from './modal';
-import FormValidator from './formValidator';
+import Modal from './modal.js';
+import FormValidator from './formValidator.js';
 
 class ContactModal extends Modal {
   constructor() {
