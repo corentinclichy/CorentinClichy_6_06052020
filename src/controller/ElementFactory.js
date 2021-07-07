@@ -1,54 +1,58 @@
-import Markup from "./markup.js";
+import Markup from './markup.js';
 
 class ElementFactory {
   constructor() {
-    this.createMediaGallery = function (type, media) {
+    this.createMediaGallery = (type, media) => {
       let markup;
       let video;
       let image;
 
-      if (type === "video") {
+      if (type === 'video') {
         markup = new Markup();
         video = markup.mediaGalleryVideoMarkup(media);
         return video;
-      } else if (type === "image") {
+      }
+      if (type === 'image') {
         markup = new Markup();
         image = markup.mediaGalleryImageMarkup(media);
         return image;
       }
+      return console.log('error');
     };
 
-    this.createlightboxMedia = function (type, media) {
+    this.createlightboxMedia = (type, media) => {
       let markup;
       let video;
       let image;
 
-      if (type === "video") {
+      if (type === 'video') {
         markup = new Markup();
         video = markup.lightBoxGalleryVideoMarkup(media);
         return video;
-      } else if (type === "image") {
+      }
+      if (type === 'image') {
         markup = new Markup();
         image = markup.lightBoxGalleryImageMarkup(media);
         return image;
       }
+      return console.log('error');
     };
 
-    this.createPhotographerList = function (photographer) {
-      let media = new Markup();
-      let markup = media.photographerCardMarkup(photographer);
+    this.createPhotographerList = (photographer) => {
+      const media = new Markup();
+      const markup = media.photographerCardMarkup(photographer);
 
       return markup;
     };
-    this.createPhotographerBio = function (photographer) {
-      let media = new Markup();
-      let markup = media.photographerBioMarkup(photographer);
+    this.createPhotographerBio = (photographer) => {
+      const media = new Markup();
+      const markup = media.photographerBioMarkup(photographer);
       return markup;
     };
 
-    this.createPriceInfos = function (obj) {
-      let markup = new Markup();
-      let priceInfoMarkup = markup.priceInfosPhotographerMarkup(obj);
+    this.createPriceInfos = (obj) => {
+      const markup = new Markup();
+      const priceInfoMarkup = markup.priceInfosPhotographerMarkup(obj);
       return priceInfoMarkup;
     };
   }
