@@ -137,6 +137,7 @@ button {
 
 body {
   font-family: "DM Sans", sans-serif;
+  position: relative;
 }
 
 h1,
@@ -171,7 +172,7 @@ header {
   align-items: center;
   grid-row-gap: 30px;
   margin: auto;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 header .header__logo {
   height: 37.5px;
@@ -538,13 +539,15 @@ header .tags .row {
 .contact .contact__wrapper .contact__form .form-data[data-error-visible=true] .text-control {
   border: 2px solid #8d0e1b;
 }
-.contact .contact__wrapper .fa-times {
+.contact .contact__wrapper .close-btn {
   position: absolute;
+  background-color: transparent;
   top: 10px;
   right: 10px;
   width: 32px;
   height: 32px;
   color: white;
+  font-size: 2rem;
   cursor: pointer;
 }
 
@@ -601,6 +604,22 @@ header .tags .row {
 .filters .open {
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
+}
+
+#scroll-to-top {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 20;
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: #db8876;
+  font-weight: 700;
+  display: none;
+}
+#scroll-to-top:hover {
+  background-color: #d77a66;
 }
 
 .cards-container {

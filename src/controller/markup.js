@@ -1,12 +1,5 @@
 class Markup {
-  mediaGalleryVideoMarkup({
-    photographerId,
-    video_url,
-    likes,
-    title,
-    id,
-    altText,
-  }) {
+  mediaGalleryVideoMarkup({ photographerId, video_url, likes, title, id, altText }) {
     return `
     <article class="showcase__photo-card" aria-label="photo card">
       <figure class="photo-card__img" >
@@ -22,7 +15,7 @@ class Markup {
         <div class="like">
           <span aria-label="likes">${likes}</span>
           <button class="like__btn" aria-label="like">
-            <i class="fas fa-heart"></i>
+            <i class="far fa-heart"></i>
           </button>
         </div>
       </figcaption>
@@ -30,14 +23,7 @@ class Markup {
               `;
   }
 
-  mediaGalleryImageMarkup({
-    photographerId,
-    image_url,
-    likes,
-    title,
-    id,
-    altText,
-  }) {
+  mediaGalleryImageMarkup({ photographerId, image_url, likes, title, id, altText }) {
     return `
         <div class="showcase__photo-card">
         <figure class="photo-card__img" role="Image Link" aria-label="${altText},closeup view" >
@@ -52,7 +38,7 @@ class Markup {
           <div class="like" aria-label="likes">
             <span class='like__numbers'>${likes}</span>
             <button class="like__btn">
-               <i class="fas fa-heart"></i>
+              <i class="far fa-heart"></i>
             </button>
           </div>
         </figcaption>
@@ -92,7 +78,7 @@ class Markup {
     `;
   }
 
-  photographerBioMarkup({ name, city, country, tagline, tags, image_url }) {
+  photographerBioMarkup({ id, name, city, country, tagline, tags, image_url }) {
     return `
         <div class="panel-left">
         <div class="wrap">
@@ -112,10 +98,11 @@ class Markup {
         ${tags
           .map((tag) => {
             return `
-              <a class="tag" href="../index.html?tag=${tag}">#${tag}</a>
+              <a class="tag" id="${tag}"href="../pages/photographer.html?tag=${tag}&id=${id}">#${tag}</a>
            `;
           })
-          .join("")}
+          .join('')}
+          <a class="tag" id="null" href="../pages/photographer.html?id=${id}">#Tous</a>
         </div>
       </div>
       <div class="right-panel">
@@ -131,17 +118,7 @@ class Markup {
         `;
   }
 
-  photographerCardMarkup({
-    id,
-    image_url,
-    name,
-    city,
-    country,
-    tagline,
-    price,
-    tags,
-    altText,
-  }) {
+  photographerCardMarkup({ id, image_url, name, city, country, tagline, price, tags, altText }) {
     return `
       <artile class="cards-container__card-photographer" aria-label='photographe'>
           <a href="pages/photographer.html?id=${id}" class="card-photographer__link">
@@ -162,7 +139,7 @@ class Markup {
                 <a class="tag" aria-label="Tag ${tag}" href="index.html?tag=${tag}">#${tag} </a>
               `;
             })
-            .join("")}
+            .join('')}
           </div>
         </artile>
       `;

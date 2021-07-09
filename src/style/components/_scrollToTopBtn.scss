@@ -1,0 +1,16 @@
+#scroll-to-top {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 20;
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: $thirdary;
+  font-weight: 700;
+  display: none;
+
+  &:hover {
+    background-color: darken($thirdary, 4%);
+  }
+}

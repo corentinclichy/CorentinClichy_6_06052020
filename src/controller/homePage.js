@@ -8,6 +8,8 @@ class HomePage {
     this.photographersContainer = document.querySelector('.cards-container');
     this.photographer = [];
     this.elementFactory = new ElementFactory();
+
+    this.ScrollToTopBtn = document.querySelector('#scroll-to-top');
   }
 
   _getTag() {
@@ -79,10 +81,30 @@ class HomePage {
 
     this.showActive(tag);
   }
+
+  displayOnScroll() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 40) {
+      this.ScrollToTopBtn.style.display = 'block';
+    } else {
+      this.ScrollToTopBtn.style.display = 'none';
+    }
+  }
+
+  // create a function to scroll to the top of the page
+  scrollToTop() {
+    window.scrollTo(0, 0);
+  }
 }
 
 const homePage = new HomePage();
 
 window.onload = () => {
   homePage.showphotographer();
+};
+
+window.onscroll = function () {
+  homePage.displayOnScroll();
+
+  // add a eventlistner to the scroll to top button
+  homePage.ScrollToTopBtn.addEventListener('click', homePage.scrollToTop);
 };

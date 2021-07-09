@@ -1,21 +1,22 @@
-@import "abstract/typography";
-@import "abstract/color";
-@import "abstract/mediaqueries";
-@import "abstract/animations";
+@import 'abstract/typography';
+@import 'abstract/color';
+@import 'abstract/mediaqueries';
+@import 'abstract/animations';
 
-@import "base/reset";
-@import "base/typography";
-@import "base/base";
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/base';
 
-@import "components/header";
-@import "components/tag";
-@import "components/card-photographer";
-@import "components/photo-card";
-@import "components/contactBtn";
-@import "components/photographerPrice";
-@import "components/lightBox";
-@import "components/contactForm";
-@import "components/filterOptions";
+@import 'components/header';
+@import 'components/tag';
+@import 'components/card-photographer';
+@import 'components/photo-card';
+@import 'components/contactBtn';
+@import 'components/photographerPrice';
+@import 'components/lightBox';
+@import 'components/contactForm';
+@import 'components/filterOptions';
+@import 'components/scrollToTopBtn';
 
-@import "pages/home";
-@import "pages/photographer";
+@import 'pages/home';
+@import 'pages/photographer';
