@@ -13,6 +13,7 @@ class PhotographerPage {
     this.lightboxModal = new LightBoxModal();
     this.contactModal = new ContactModal();
     this.totalLikes = 0;
+    this.ScrollToTopBtn = document.querySelector('#scroll-to-top');
 
     this.dropdownContent = document.querySelector('.dropdown-content');
     this.dropdown = document.querySelector('.dropdown');
@@ -251,6 +252,19 @@ class PhotographerPage {
     activeElement && activeElement.classList.add('active');
     activeElement && activeElement.setAttribute('aria-current', 'page');
   }
+
+  displayOnScroll() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 40) {
+      this.ScrollToTopBtn.style.display = 'block';
+    } else {
+      this.ScrollToTopBtn.style.display = 'none';
+    }
+  }
+
+  // create a function to scroll to the top of the page
+  scrollToTop() {
+    window.scrollTo(0, 0);
+  }
 }
 
 //Event Listener
@@ -292,3 +306,10 @@ document.getElementsByTagName('body')[0].addEventListener('keydown', (e) => {
 photographerPage.submitBtn.addEventListener('click', () => {
   photographerPage.contactModal.submitForm();
 });
+
+window.onscroll = function () {
+  photographerPage.displayOnScroll();
+
+  // add a eventlistner to the scroll to top button
+  photographerPage.ScrollToTopBtn.addEventListener('click', photographerPage.scrollToTop);
+};
