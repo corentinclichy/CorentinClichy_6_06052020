@@ -1,10 +1,14 @@
 .tag {
   width: fit-content;
-  font-size: 16px;
+  font-size: 14px;
   border: 0.5px solid #c4c4c4;
   border-radius: 20px;
   padding: 4px;
   transition: all 0.25s ease-in-out;
+
+  @include size('md') {
+    font-size: 16px;
+  }
 
   &:hover {
     background-color: $primary;

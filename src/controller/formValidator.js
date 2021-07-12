@@ -48,7 +48,7 @@ class FormValidator {
     });
   }
 
-  static validateFields(field) {
+  validateFields(field) {
     // Switch statement to test all the different possibilities
     const inputName = field[0].name;
     const inputValue = field[0].value;

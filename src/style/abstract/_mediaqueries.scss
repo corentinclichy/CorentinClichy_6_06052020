@@ -1,28 +1,38 @@
-$sm: "640px";
-$md: "768px";
-$lg: "1024px";
-$xl: "1280px";
-$xxl: "1536px";
+$xxs: '375px';
+$xs: '425px';
+$sm: '640px';
+$md: '768px';
+$lg: '1024px';
+$xl: '1280px';
+$xxl: '1536px';
 
 @mixin size($size) {
-  @if $size == "sm" {
+  @if $size == 'sm' {
     @media (min-width: $sm) {
       @content;
     }
-  } @else if $size == "md" {
+  } @else if $size == 'md' {
     @media (min-width: $md) {
       @content;
     }
-  } @else if $size == "lg" {
+  } @else if $size == 'lg' {
     @media (min-width: $lg) {
       @content;
     }
-  } @else if $size == "xl" {
+  } @else if $size == 'xl' {
     @media (min-width: $xl) {
       @content;
     }
-  } @else if $size == "xxl" {
+  } @else if $size == 'xxl' {
     @media (min-width: $xxl) {
+      @content;
+    }
+  } @else if $size == 'xxs' {
+    @media (min-width: $xxs) {
+      @content;
+    }
+  } @else if $size == 'xs' {
+    @media (min-width: $xs) {
       @content;
     }
   }

@@ -30,6 +30,11 @@ class PhotographerPage {
     this.contactBtns = document.querySelectorAll('.contact-btn');
     this.submitBtn = document.querySelector('input[type=submit]');
 
+    //select filter-popular element
+    this.filterActive = document.querySelector('#filter-active');
+    this.filterDate = document.querySelector('#filter-date');
+    this.filterTitle = document.querySelector('#filter-title');
+
     this.tag = this._getTag();
   }
 
@@ -130,6 +135,7 @@ class PhotographerPage {
       });
     } else {
       let filteredmedias = medias.filter((media) => media.tags.includes(this.tag));
+
       filteredmedias.map(({ photographerId, image, video, likes, title, id, altText }) => {
         let mediaList;
         if (!image) {

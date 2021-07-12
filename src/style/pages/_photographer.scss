@@ -1,50 +1,68 @@
 .photographer-infos {
-  width: 92%;
+  width: 95%;
   margin: auto;
   display: flex;
   align-items: center;
 
-  @include size("md") {
+  @include size('xxs') {
+    width: 90%;
+  }
+
+  @include size('md') {
     width: 92%;
-    margin: auto;
     background-color: #fafafa;
     border-radius: 5px;
   }
 
   .panel-left {
+    width: 100%;
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    @include size("md") {
-      padding: 50px;
+    gap: 10px;
+    margin-right: 10px;
+    @include size('md') {
+      padding: 30px;
+      gap: 20px;
     }
 
     .wrap {
       display: flex;
+      overflow: hidden;
+      gap: 60px;
+
       h1 {
         color: $secondary;
-        font-size: 36px;
-        @include size("md") {
-          font-size: 64px;
+        font-size: 25px;
+        text-overflow: ellipsis;
+        @include size('md') {
+          font-size: 50px;
         }
       }
     }
 
     .card-photographer__location {
-      font-size: 16px;
+      font-size: 14px;
       color: $primary;
       font-weight: 400;
       margin-top: 5px;
+
+      @include size('md') {
+        font-size: 16px;
+      }
     }
     .card-photographer__description {
-      font-size: 16px;
+      font-size: 14px;
       color: black;
       font-weight: 400;
       margin-top: 5px;
+      @include size('md') {
+        font-size: 16px;
+      }
     }
     .card-photographer__tags {
       display: flex;
+      flex-wrap: wrap;
       gap: 5px;
     }
   }
@@ -53,8 +71,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    @include size("md") {
-      padding: 50px;
+    @include size('md') {
+      padding-right: 30px;
     }
 
     .card-photographer__img {
@@ -63,7 +81,7 @@
       border-radius: 50%;
       overflow: hidden;
 
-      @include size("md") {
+      @include size('md') {
         width: 200px;
         height: 200px;
       }

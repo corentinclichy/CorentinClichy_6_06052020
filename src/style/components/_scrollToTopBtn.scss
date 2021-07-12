@@ -9,6 +9,7 @@
   background-color: $thirdary;
   font-weight: 700;
   display: none;
+  z-index: 1;
 
   &:hover {
     background-color: darken($thirdary, 4%);
