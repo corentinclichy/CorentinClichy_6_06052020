@@ -54,10 +54,10 @@ class Markup {
               alt=""
               id=${id}
             />
-            <figcaption class="img__infos">
-              <p class="">${title}</p>
-            </figcaption>
     </figure>
+    <figcaption class="img__infos">
+      <p class="">${title}</p>
+    </figcaption>
     
 
     `;
