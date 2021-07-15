@@ -98,11 +98,11 @@ class Markup {
         ${tags
           .map((tag) => {
             return `
-              <a class="tag" id="${tag}"href="../pages/photographer.html?tag=${tag}&id=${id}">#${tag}</a>
+              <a class="tag" id="${tag}"href="../pages/photographer.html?tag=${tag}&id=${id}"><span class="sr-only">Tag</span>#${tag}</a>
            `;
           })
           .join('')}
-          <a class="tag" id="null" href="../pages/photographer.html?id=${id}">#Tous</a>
+          <a class="tag" id="null" href="../pages/photographer.html?id=${id}"><span class="sr-only">Tag</span>#Tous</a>
         </div>
       </div>
       <div class="right-panel">
