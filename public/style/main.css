@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
 html,
 body,
 div,
@@ -120,7 +120,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
+  content: "";
   content: none;
 }
 
@@ -136,7 +136,7 @@ button {
 }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
 }
 
 h1,
@@ -145,7 +145,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
 }
 
 h1 {
@@ -550,7 +550,7 @@ header .tags .row {
     height: 15vh;
   }
 }
-.contact .contact__wrapper .contact__form .form-data input[type='submit'] {
+.contact .contact__wrapper .contact__form .form-data input[type=submit] {
   width: 50%;
   background-color: #901c1c;
   color: white;
@@ -569,10 +569,10 @@ header .tags .row {
   opacity: 0;
   transition: 0.3s;
 }
-.contact .contact__wrapper .contact__form .form-data[data-error-visible='true']::after {
+.contact .contact__wrapper .contact__form .form-data[data-error-visible=true]::after {
   opacity: 1;
 }
-.contact .contact__wrapper .contact__form .form-data[data-error-visible='true'] .text-control {
+.contact .contact__wrapper .contact__form .form-data[data-error-visible=true] .text-control {
   border: 2px solid #8d0e1b;
 }
 .contact .contact__wrapper .close-btn {
