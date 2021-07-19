@@ -54,7 +54,7 @@ class FormValidator {
     const inputValue = field[0].value;
 
     const formDataElement = field[0].parentElement;
-    const res = /\S+@\S+\.\S+/;
+    const resEmail = /\S+@\S+\.\S+/;
 
     switch (inputName) {
       case 'first-name':
@@ -84,7 +84,7 @@ class FormValidator {
         break;
       case 'email':
         // (3) L'adresse électronique est valide.
-        if (res.test(inputValue)) {
+        if (resEmail.test(inputValue)) {
           formDataElement.setAttribute('data-error-visible', false);
         } else {
           formDataElement.setAttribute('data-error', 'Veuillez entrer un adresse email correct');
