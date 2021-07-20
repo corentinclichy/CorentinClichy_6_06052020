@@ -15,8 +15,8 @@ class Modal {
     this.body.style.top = `-${window.scrollY}px`;
     modalElement.setAttribute('aria-hidden', 'false');
     this.mainContent.setAttribute('aria-hidden', 'true');
-    modalElement.querySelector('#modalTitle').focus();
-    modalElement.querySelector('#media').focus();
+    modalElement.querySelector('#modalTitle') !== null &&
+      modalElement.querySelector('#modalTitle').focus();
   }
 
   hideModal(modalElement) {

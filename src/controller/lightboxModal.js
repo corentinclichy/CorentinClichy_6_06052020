@@ -56,7 +56,7 @@ class LightBoxModal extends Modal {
   }
 
   showPrevious(medias) {
-    const currentMediaId = parseInt(document.querySelector('.lightbox__content__img').id);
+    const currentMediaId = parseInt(document.querySelector('.lightbox__content__image').id);
 
     const currentMediaIndex = medias.findIndex((obj) => obj.id == currentMediaId);
 
@@ -83,7 +83,7 @@ class LightBoxModal extends Modal {
   }
 
   showNext(medias) {
-    const currentMediaId = parseInt(document.querySelector('.lightbox__content__img').id);
+    const currentMediaId = parseInt(document.querySelector('.lightbox__content__image').id);
 
     const currentMediaIndex = medias.findIndex((obj) => obj.id == currentMediaId);
 

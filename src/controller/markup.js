@@ -50,6 +50,7 @@ class Markup {
     return `
     <figure tabindex="0" id="media" class="lightbox__content__img" id=${id} aria-label="Photographie ${title}, naviguer avec les flèches, echap pour fermer la fenêtre">
             <img
+              class="lightbox__content__image"
               src="../../public/assets/Images/${photographerId}/${image}"
               alt="Photographie ${title}"
               id=${id}
@@ -69,6 +70,7 @@ class Markup {
     <video
     preload="metadata"
     id=${id}
+    class="lightbox__content__image"
     controls>
     <source src="../../public/assets/Images/${photographerId}/${video}#t=0.1" type="video/mp4">
     <figcaption class="img__infos">

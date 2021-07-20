@@ -418,11 +418,30 @@ header .tags .row {
 }
 .lightbox .lightbox__wrapper {
   display: grid;
-  grid-template-columns: auto 700px auto;
+  grid-template-columns: auto 240px auto;
   grid-template-rows: 80vh;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
+  width: 100%;
+}
+@media (min-width: 375px) {
+  .lightbox .lightbox__wrapper {
+    grid-template-columns: auto 300px auto;
+    gap: 10px;
+  }
+}
+@media (min-width: 425px) {
+  .lightbox .lightbox__wrapper {
+    grid-template-columns: auto 350px auto;
+    gap: 10px;
+  }
+}
+@media (min-width: 768px) {
+  .lightbox .lightbox__wrapper {
+    grid-template-columns: auto 700px auto;
+    gap: 10px;
+  }
 }
 .lightbox .lightbox__wrapper .lightbox__content {
   width: 100%;
@@ -430,7 +449,24 @@ header .tags .row {
   flex-direction: column;
 }
 .lightbox .lightbox__wrapper .lightbox__content .lightbox__content__img {
-  height: 40rem;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 200px;
+}
+@media (min-width: 375px) {
+  .lightbox .lightbox__wrapper .lightbox__content .lightbox__content__img {
+    height: 300px;
+  }
+}
+@media (min-width: 375px) {
+  .lightbox .lightbox__wrapper .lightbox__content .lightbox__content__img {
+    height: 350px;
+  }
+}
+@media (min-width: 768px) {
+  .lightbox .lightbox__wrapper .lightbox__content .lightbox__content__img {
+    height: 80vh;
+  }
 }
 .lightbox .lightbox__wrapper .lightbox__content .lightbox__content__img img {
   width: 100%;
@@ -459,7 +495,22 @@ header .tags .row {
   font-size: 1.5rem;
   position: absolute;
   align-self: center;
-  top: -20px;
+  top: 150px;
+}
+@media (min-width: 375px) {
+  .lightbox .lightbox__wrapper .lightbox__arrow-right .close-btn {
+    top: 100px;
+  }
+}
+@media (min-width: 425px) {
+  .lightbox .lightbox__wrapper .lightbox__arrow-right .close-btn {
+    top: 80px;
+  }
+}
+@media (min-width: 768px) {
+  .lightbox .lightbox__wrapper .lightbox__arrow-right .close-btn {
+    top: -30px;
+  }
 }
 .lightbox .lightbox__wrapper .lightbox__arrow-right .close-btn .fa-times {
   color: #901c1c;
@@ -502,7 +553,7 @@ header .tags .row {
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 80vh;
+  max-height: 100vh;
   padding: 20px;
   background-color: #db8876;
 }
@@ -510,7 +561,7 @@ header .tags .row {
   .contact .contact__wrapper {
     max-width: 60%;
     height: fit-content;
-    max-height: 100%;
+    max-height: 80vh;
     border-radius: 5px;
   }
 }
@@ -520,16 +571,20 @@ header .tags .row {
   }
 }
 .contact .contact__wrapper h1 {
-  font-size: 45px;
+  font-size: 35px;
   color: black;
+}
+@media (min-width: 768px) {
+  .contact .contact__wrapper {
+    font-size: 45px;
+  }
 }
 .contact .contact__wrapper .contact__form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 95%;
   flex: 1;
-  margin: auto;
   margin-top: 15px;
 }
 .contact .contact__wrapper .contact__form .form-data {
@@ -539,9 +594,14 @@ header .tags .row {
   margin-bottom: 0.2rem;
 }
 .contact .contact__wrapper .contact__form .form-data label {
-  font-size: 24px;
+  font-size: 18px;
   color: #2c1919;
   align-self: start;
+}
+@media (min-width: 768px) {
+  .contact .contact__wrapper .contact__form .form-data label {
+    font-size: 20px;
+  }
 }
 .contact .contact__wrapper .contact__form .form-data input,
 .contact .contact__wrapper .contact__form .form-data textarea {
@@ -549,7 +609,7 @@ header .tags .row {
   padding: 15px 10px;
   border-radius: 5px;
   margin: 5px 0 0px 0;
-  width: 98%;
+  width: 100%;
 }
 .contact .contact__wrapper .contact__form .form-data input:focus,
 .contact .contact__wrapper .contact__form .form-data textarea:focus {
