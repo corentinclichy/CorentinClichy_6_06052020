@@ -8,4 +8,12 @@
   @include size('md') {
     row-gap: 50px;
   }
+  @include size('lg') {
+    row-gap: 100px;
+    column-gap: 50px;
+  }
+  @include size('lg') {
+    row-gap: 100px;
+    column-gap: 100px;
+  }
 }

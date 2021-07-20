@@ -23,7 +23,7 @@ class HomePage {
   _displayPhotographer(photographers) {
     this.photographersContainer.innerHTML = '';
 
-    photographers.map(({ name, city, country, tagline, price, tags, portrait, id }) => {
+    photographers.map(({ name, city, country, tagline, price, tags, portrait, id, altText }) => {
       const photographerList = this.elementFactory.createPhotographerList({
         name: name,
         city: city,
@@ -33,6 +33,7 @@ class HomePage {
         tags: tags,
         image_url: portrait,
         id: id,
+        altText: altText,
       });
       this.photographersContainer.innerHTML += photographerList;
     });

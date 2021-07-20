@@ -58,7 +58,7 @@ class Markup {
     <figcaption class="img__infos">
       <p class="">${title}</p>
     </figcaption>
-    
+
 
     `;
   }
@@ -87,13 +87,13 @@ class Markup {
             Contactez-moi
           </button>
         </div>
-    
+
         <p class="card-photographer__location">${city}, ${country}</p>
         <p class="card-photographer__description">
         ${tagline}
         </p>
-    
-        
+
+
         <div class="card-photographer__tags">
         ${tags
           .map((tag) => {
@@ -120,9 +120,9 @@ class Markup {
 
   photographerCardMarkup({ id, image_url, name, city, country, tagline, price, tags, altText }) {
     return `
-      <artile class="cards-container__card-photographer" aria-label='photographe'>
+      <artile class="cards-container__card-photographer" aria-label='photographe ${name}'>
           <a href="pages/photographer.html?id=${id}" class="card-photographer__link">
-            <figure class="card-photographer__img">
+            <figure class="card-photographer__img" role='img' aria-label='Image et nom du ${altText}'>
               <img src="../public/assets/Images/Photographers/${image_url}" alt="${altText}" />
             </figure>
             <h2>${name}</h2>
@@ -131,12 +131,12 @@ class Markup {
           <p class="card-photographer__description">
             ${tagline}
           </p>
-          <p class="card-photographer__price">${price}€/j</p>
-          <div class="card-photographer__tags" role="Links" aria-label="Liste des tags de ce photographe">
+          <p class="card-photographer__price" aria-label="${price} euros par jour">${price}€/j</p>
+          <div class="card-photographer__tags" role="navigation" aria-label="Liste des tags associé à ce photographe">
           ${tags
             .map((tag) => {
               return `
-                <a class="tag" aria-label="Tag ${tag}" href="index.html?tag=${tag}">#${tag} </a>
+                <a class="tag" href="index.html?tag=${tag}"><span class="sr-only">Tag</span>#${tag} </a>
               `;
             })
             .join('')}

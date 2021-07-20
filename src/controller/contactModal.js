@@ -7,6 +7,7 @@ class ContactModal extends Modal {
     this.contactForm = document.querySelector('.contact__form');
     this.formDatas = document.querySelectorAll('.form-data');
     this.submitBtn = document.querySelector('input[type=submit]');
+    this.modal = new Modal();
 
     this.validator = new FormValidator(
       this.contactForm,
@@ -36,11 +37,12 @@ class ContactModal extends Modal {
           email: emailField,
           message: messageField,
         });
+        this.modal.hideModal(this.modal.contactElement);
       }
     }
   }
 
-  static _isError(fields) {
+  _isError(fields) {
     // Get all the value of data-error-visible, check for error
     let error = [];
     fields.forEach((element) => {

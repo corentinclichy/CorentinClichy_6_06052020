@@ -172,6 +172,19 @@ body {
   padding: 0;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  /* added line */
+  border: 0;
+}
+
 header {
   width: 95%;
   margin: auto;
@@ -558,6 +571,7 @@ header .tags .row {
   font-weight: 700;
   margin-top: 10px;
   align-self: center;
+  cursor: pointer;
 }
 .contact .contact__wrapper .contact__form .form-data[data-error]::after {
   content: attr(data-error);
@@ -669,6 +683,18 @@ header .tags .row {
 @media (min-width: 768px) {
   .cards-container {
     row-gap: 50px;
+  }
+}
+@media (min-width: 1024px) {
+  .cards-container {
+    row-gap: 100px;
+    column-gap: 50px;
+  }
+}
+@media (min-width: 1024px) {
+  .cards-container {
+    row-gap: 100px;
+    column-gap: 100px;
   }
 }
 

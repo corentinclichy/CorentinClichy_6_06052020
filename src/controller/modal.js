@@ -14,7 +14,6 @@ class Modal {
     modalElement.style.display = 'flex';
     this.body.style.top = `-${window.scrollY}px`;
 
-    console.log(`-${window.scrollY}px`);
     modalElement.setAttribute('aria-hidden', 'false');
     this.mainContent.setAttribute('aria-hidden', 'true');
   }
@@ -26,7 +25,7 @@ class Modal {
     modalElement.style.display = 'none';
     modalElement.setAttribute('aria-hidden', 'true');
     this.mainContent.setAttribute('aria-hidden', 'false');
-    this.closeBtn.focus();
+    // this.closeBtn.focus();
   }
 }
 
