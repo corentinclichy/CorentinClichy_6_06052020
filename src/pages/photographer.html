@@ -14,14 +14,12 @@
       Revenir en haut
     </button>
     <header role="heading" aria-label="header du site FishEye">
-      <button class="header__logo" role="link" aria-label="Logo FishEye, lien vers la home page">
-        <a href="../index.html">
-          <img src="../../public/assets/logo.svg" alt="Logo FishEye" class="logo" />
-        </a>
-      </button>
+      <a class="header__logo" href="./" aria-label="Logo FishEye lien vers la home">
+        <img src="../../public/assets/logo.svg" alt="logo FishEye" class="logo" />
+      </a>
     </header>
 
-    <main role="main" aria-label="Page spécifique du photographe" class="main-content">
+    <main aria-label="Page spécifique du photographe" class="main-content">
       <section
         class="photographer-infos"
         role="banner"
@@ -29,16 +27,12 @@
       >
         <!-- Photoghrapher Bio Markup -->
       </section>
-      <section
-        class="filters"
-        role="listbox"
-        aria-label="Bouton de filtrage des photos et vidéos du photographe"
-      >
+      <section class="filters" aria-label="Bouton de filtrage des photos et vidéos du photographe">
         <p class="filters__name">Trier par</p>
 
         <div class="dropdown" role="listbox" aria-haspopup="listbox" aria-expanded="false">
           <button
-            role="listbox"
+            role="button"
             aria-haspopup="listbox"
             aria-expanded="false"
             aria-label="filtre actif"
@@ -55,7 +49,7 @@
         </div>
       </section>
 
-      <section class="showcase" role="region" aria-label="Showcase des photos du photographe">
+      <section class="showcase" aria-label="Showcase des photos du photographe">
         <!-- MediaList markup -->
       </section>
 
@@ -68,7 +62,6 @@
       </div>
       <button
         class="contact-btn contact-btn--mobile modal-btn"
-        role="button"
         aria-label="bouton de contact du photographe"
       >
         Contactez-moi
@@ -86,17 +79,15 @@
     >
       <div class="lightbox__wrapper">
         <div class="lightbox__arrow-left">
-          <button
-            class="previous-btn"
-            role="button"
-            aria-label="photographe précèdente"
-            aria-hidden="true"
-          >
+          <button class="previous-btn" aria-label="photographe précèdente" aria-hidden="true">
             <i class="fas fa-chevron-left"></i>
           </button>
           <p class="sr-only">Photographie Précédente</p>
         </div>
-        <div class="lightbox__content" aria-label="photographie">
+        <div
+          class="lightbox__content"
+          aria-label="Visionneuse des photos et vidéos de la photographe"
+        >
           <figure class="lightbox__content__img">
             <img src="../../public/assets/Images/930/Architecture_Horseshoe.jpg" alt="" />
           </figure>
@@ -105,15 +96,10 @@
           </figcaption>
         </div>
         <div class="lightbox__arrow-right">
-          <button class="close-btn" role="button" aria-label="Fermer la fenêtre">
+          <button class="close-btn" aria-label="Fermer la fenêtre">
             <i class="fas fa-times"></i>
           </button>
-          <button
-            class="next-btn"
-            role="button"
-            aria-label="photographe suivante"
-            aria-hidden="true"
-          >
+          <button class="next-btn" aria-label="photographe suivante" aria-hidden="true">
             <i class="fas fa-chevron-right"></i>
           </button>
           <p class="sr-only">Photographie Suivante</p>
@@ -149,7 +135,6 @@
               id="first-name"
               class="text-control"
               aria-required="true"
-              aria-labelledby="first-name"
             />
           </div>
           <div class="form-data">
@@ -162,21 +147,13 @@
               id="last-name"
               class="text-control"
               aria-required="true"
-              aria-labelledby="last-name"
             />
           </div>
           <div class="form-data">
             <label for="email" id="email">
               Email <span class="sr-only">Merci d'entrer un email valide</span>
             </label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              aria-labelledby="email"
-              class="text-control"
-              aria-required="true"
-            />
+            <input type="email" name="email" id="email" class="text-control" aria-required="true" />
           </div>
           <div class="form-data">
             <label for="message" id="message">
@@ -186,15 +163,14 @@
               name="message"
               id="message"
               class="text-control"
-              aria-labelledby="message"
               aria-required="true"
             ></textarea>
           </div>
           <div class="form-data">
-            <input type="submit" value="Envoyer" role="button" />
+            <input type="submit" value="Envoyer" />
           </div>
         </form>
-        <button class="close-btn" role="button" aria-label="Close button">
+        <button class="close-btn" aria-label="Close button">
           <i class="fas fa-times"></i>
         </button>
       </div>
