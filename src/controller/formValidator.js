@@ -65,8 +65,11 @@ class FormValidator {
             'Veuillez entrer 2 caractères ou plus pour le champ du prénom.'
           );
           formDataElement.setAttribute('data-error-visible', true);
+          formDataElement.setAttribute('aria-invalid', true);
         } else {
           formDataElement.setAttribute('data-error-visible', false);
+          formDataElement.setAttribute('data-error', '');
+          formDataElement.setAttribute('aria-invalid', false);
         }
         break;
 
@@ -78,17 +81,23 @@ class FormValidator {
             'Veuillez entrer 2 caractères ou plus pour le champ du nom.'
           );
           formDataElement.setAttribute('data-error-visible', true);
+          formDataElement.setAttribute('aria-invalid', true);
         } else {
           formDataElement.setAttribute('data-error-visible', false);
+          formDataElement.setAttribute('data-error', '');
+          formDataElement.setAttribute('aria-invalid', false);
         }
         break;
       case 'email':
         // (3) L'adresse électronique est valide.
         if (resEmail.test(inputValue)) {
           formDataElement.setAttribute('data-error-visible', false);
+          formDataElement.setAttribute('data-error', '');
+          formDataElement.setAttribute('aria-invalid', false);
         } else {
           formDataElement.setAttribute('data-error', 'Veuillez entrer un adresse email correct');
           formDataElement.setAttribute('data-error-visible', true);
+          formDataElement.setAttribute('aria-invalid', true);
         }
         break;
       case 'message':
@@ -98,8 +107,11 @@ class FormValidator {
             'votre message doit comporter minimum 4 caractères'
           );
           formDataElement.setAttribute('data-error-visible', true);
+          formDataElement.setAttribute('aria-invalid', true);
         } else {
           formDataElement.setAttribute('data-error-visible', false);
+          formDataElement.setAttribute('data-error', '');
+          formDataElement.setAttribute('aria-invalid', false);
         }
         break;
       default:

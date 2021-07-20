@@ -1,23 +1,23 @@
-import ElementFactory from "./ElementFactory.js";
-import Modal from "./modal.js";
+import ElementFactory from './ElementFactory.js';
+import Modal from './modal.js';
 
 class LightBoxModal extends Modal {
   constructor() {
     super();
-    this.modal = document.querySelector(".lightbox");
-    this.closeBtn = document.querySelector(".fa-times");
-    this.modalImage = document.querySelector(".lightbox__content__img");
-    this.modalName = document.querySelector(".lightbox__content__img");
-    this.lightBoxContent = document.querySelector(".lightbox__content");
+    this.modal = document.querySelector('.lightbox');
+    this.closeBtn = document.querySelector('.fa-times');
+    this.modalImage = document.querySelector('.lightbox__content__img');
+    this.modalName = document.querySelector('.lightbox__content__img');
+    this.lightBoxContent = document.querySelector('.lightbox__content');
     this.elementFactory = new ElementFactory();
   }
 
   _displayMedia(type, { id, photographerId, video, image, title }) {
-    this.lightBoxContent.innerHTML = "";
+    this.lightBoxContent.innerHTML = '';
     let lightBoxMedia;
 
     if (!type) {
-      lightBoxMedia = this.elementFactory.createlightboxMedia("video", {
+      lightBoxMedia = this.elementFactory.createlightboxMedia('video', {
         id: id,
         title: title,
         image: image,
@@ -25,7 +25,7 @@ class LightBoxModal extends Modal {
         photographerId: photographerId,
       });
     } else {
-      lightBoxMedia = this.elementFactory.createlightboxMedia("image", {
+      lightBoxMedia = this.elementFactory.createlightboxMedia('image', {
         id: id,
         title: title,
         image: image,
@@ -56,13 +56,9 @@ class LightBoxModal extends Modal {
   }
 
   showPrevious(medias) {
-    const currentMediaId = parseInt(
-      document.querySelector(".lightbox__content__img").id
-    );
+    const currentMediaId = parseInt(document.querySelector('.lightbox__content__img').id);
 
-    const currentMediaIndex = medias.findIndex(
-      (obj) => obj.id == currentMediaId
-    );
+    const currentMediaIndex = medias.findIndex((obj) => obj.id == currentMediaId);
 
     //get the previous index
     let previousMediaIndex;
@@ -87,13 +83,9 @@ class LightBoxModal extends Modal {
   }
 
   showNext(medias) {
-    const currentMediaId = parseInt(
-      document.querySelector(".lightbox__content__img").id
-    );
+    const currentMediaId = parseInt(document.querySelector('.lightbox__content__img').id);
 
-    const currentMediaIndex = medias.findIndex(
-      (obj) => obj.id == currentMediaId
-    );
+    const currentMediaIndex = medias.findIndex((obj) => obj.id == currentMediaId);
 
     //get the previous index
     let nextMediaIndex;
