@@ -121,7 +121,7 @@ class Markup {
   photographerCardMarkup({ id, image_url, name, city, country, tagline, price, tags, altText }) {
     return `
       <artile class="cards-container__card-photographer" aria-label='photographe ${name}'>
-          <a href="pages/photographer.html?id=${id}&sort=popularity" class="card-photographer__link">
+          <a href="pages/photographer.html?id=${id}" class="card-photographer__link">
             <figure class="card-photographer__img" role='img' aria-label='Image et nom du ${altText}'>
               <img src="../public/assets/Images/Photographers/${image_url}" alt="${altText}" />
             </figure>

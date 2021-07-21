@@ -36,7 +36,6 @@ class PhotographerPage {
     this.filterTitle = document.querySelector('#filter-title');
 
     this.tag = this._getTag();
-    this.sortParam = this._getSortingParams();
   }
 
   _getId() {
@@ -52,12 +51,6 @@ class PhotographerPage {
     let params = new URLSearchParams(url.search);
     let tag = params.get('tag');
     return tag;
-  }
-  _getSortingParams() {
-    const url = new URL(window.location.href);
-    let params = new URLSearchParams(url.search);
-    let sortParam = params.get('sort');
-    return sortParam;
   }
 
   fetchPhotographer(sortParam) {
