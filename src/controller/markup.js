@@ -14,7 +14,7 @@ class Markup {
         <p aria-label="Titre de la video" role="text">${title}</p>
         <div class="like" role='group' aria-label="likes">
           <span class='like__numbers'>${likes}</span>
-          <button class="like__btn" role="button" aria-label="click pour liker la vidéo">
+          <button class="like__btn" role="button" data-id=${id} aria-label="click pour liker la vidéo">
             <i class="far fa-heart"></i>
           </button>
         </div>
@@ -37,7 +37,7 @@ class Markup {
           <p aria-label="Titre de la photo" role="text">${title}</p>
           <div class="like" role='group' aria-label="Nombre de likes">
             <span class='like__numbers'>${likes}</span>
-            <button role="button" aria-label="Click pour liker la photo" class="like__btn">
+            <button role="button" aria-label="Click pour liker la photo" class="like__btn" data-id=${id}>
               <i class="far fa-heart"></i>
             </button>
           </div>

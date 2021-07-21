@@ -20,6 +20,7 @@ class PhotographerPage {
     this.dropdownBtn = document.querySelector('.dropbtn');
     this.likeBtns = [];
     this.likes = [];
+    this.likesIndex = new Set();
 
     //Lightbox Selectors
     this.closeBtns = document.querySelectorAll('.close-btn');
@@ -129,7 +130,6 @@ class PhotographerPage {
     this.showcaseContainer.innerHTML = '';
     this.lightboxModal.innerHTML = '';
     this.totalLikes = 0;
-
     if (this.tag === null) {
       medias.map(({ photographerId, image, video, likes, title, id, altText }) => {
         let mediaList;
@@ -192,7 +192,16 @@ class PhotographerPage {
 
     // LIKE FEATURE
     this.likeBtns = document.querySelectorAll('.like__btn');
+
+    //Update liked item when refresh show medias
     this.likeBtns.forEach((el) => {
+      if ([...this.likesIndex].includes(el.getAttribute('data-id'))) {
+        el.classList.add('liked');
+        el.innerHTML = '<i class="fas fa-heart"></i>';
+        this.totalLikes += 1;
+        document.querySelector('.total-likes__number').innerHTML = this.totalLikes;
+      }
+
       el.addEventListener('click', () => {
         let totalNumberOfLikes = document.querySelector('.total-likes__number');
 
@@ -203,6 +212,8 @@ class PhotographerPage {
           this.totalLikes -= 1;
           totalNumberOfLikes.innerHTML = this.totalLikes;
         } else {
+          let likedId = el.getAttribute('data-id');
+          this.likesIndex.add(likedId);
           let likesInt = parseInt(el.previousElementSibling.innerHTML);
           let updatedLikes = likesInt + 1;
           el.previousElementSibling.innerHTML = updatedLikes;
