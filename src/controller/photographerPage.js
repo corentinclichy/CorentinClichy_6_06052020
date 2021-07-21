@@ -34,7 +34,6 @@ class PhotographerPage {
     this.filterActive = document.querySelector('#filter-active');
     this.filterDate = document.querySelector('#filter-date');
     this.filterTitle = document.querySelector('#filter-title');
-
     this.tag = this._getTag();
   }
 
@@ -197,18 +196,18 @@ class PhotographerPage {
       el.addEventListener('click', () => {
         let totalNumberOfLikes = document.querySelector('.total-likes__number');
 
-        let totalNumberOfLikesInt = parseInt(this.totalLikes);
-
         if (el.classList.contains('liked')) {
           let likesInt = parseInt(el.previousElementSibling.innerHTML);
           let updatedLikes = likesInt - 1;
           el.previousElementSibling.innerHTML = updatedLikes;
-          totalNumberOfLikes.innerHTML = totalNumberOfLikesInt - 1;
+          this.totalLikes -= 1;
+          totalNumberOfLikes.innerHTML = this.totalLikes;
         } else {
           let likesInt = parseInt(el.previousElementSibling.innerHTML);
           let updatedLikes = likesInt + 1;
           el.previousElementSibling.innerHTML = updatedLikes;
-          totalNumberOfLikes.innerHTML = totalNumberOfLikesInt + 1;
+          this.totalLikes += 1;
+          totalNumberOfLikes.innerHTML = this.totalLikes;
         }
         // Toggle class liked on el if clicked
         if (el.classList.contains('liked')) {
