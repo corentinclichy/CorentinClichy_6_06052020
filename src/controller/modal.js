@@ -10,8 +10,11 @@ class Modal {
 
   showModal(modalElement) {
     this.body.style.overflow = 'hidden';
-    this.body.style.position = 'fixed';
+
+    this.body.style.top = `0px`;
+    this.body.style.left = `0px`;
     modalElement.style.display = 'flex';
+    this.lightboxElement.style.position = 'fixed';
     this.body.style.top = `-${window.scrollY}px`;
     modalElement.setAttribute('aria-hidden', 'false');
     this.mainContent.setAttribute('aria-hidden', 'true');

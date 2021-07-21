@@ -36,6 +36,7 @@ class PhotographerPage {
     this.filterTitle = document.querySelector('#filter-title');
 
     this.tag = this._getTag();
+    this.sortParam = this._getSortingParams();
   }
 
   _getId() {
@@ -52,15 +53,22 @@ class PhotographerPage {
     let tag = params.get('tag');
     return tag;
   }
+  _getSortingParams() {
+    const url = new URL(window.location.href);
+    let params = new URLSearchParams(url.search);
+    let sortParam = params.get('sort');
+    return sortParam;
+  }
 
-  fetchPhotographer() {
+  fetchPhotographer(sortParam) {
     const id = this._getId();
     fetchData('../ressources/data.json').then(({ photographers, media }) => {
       // Photographer infos
 
       // medias of the photographers
       const filterMedia = media.filter((el) => el.photographerId === id);
-      this._showMedias(filterMedia);
+      const sortmedias = this._sortMedia(filterMedia, sortParam);
+      this._showMedias(sortmedias);
 
       // INFOS PRICE TOTAL LIKES OF THE PHOTOGRAPHER
       const filteredPhotographers = photographers.filter((el) => el.id === id);
@@ -102,8 +110,33 @@ class PhotographerPage {
     this.showActive(this.tag);
   }
 
+  _sortMedia(medias, sortParam) {
+    switch (sortParam) {
+      case 'Date':
+        return medias.sort((a, b) => {
+          return new Date(a.date) - new Date(b.date);
+        });
+        break;
+      case 'Titre':
+        return medias.sort((a, b) => {
+          return a.title.localeCompare(b.title);
+        });
+        break;
+      case 'Popularité':
+        return medias.sort((a, b) => {
+          return b.likes - a.likes;
+        });
+        break;
+      default:
+        return medias;
+        break;
+    }
+  }
+
   _showMedias(medias) {
     this.showcaseContainer.innerHTML = '';
+    this.lightboxModal.innerHTML = '';
+    this.totalLikes = 0;
 
     if (this.tag === null) {
       medias.map(({ photographerId, image, video, likes, title, id, altText }) => {
@@ -171,7 +204,7 @@ class PhotographerPage {
       el.addEventListener('click', () => {
         let totalNumberOfLikes = document.querySelector('.total-likes__number');
 
-        let totalNumberOfLikesInt = parseInt(totalNumberOfLikes.innerHTML);
+        let totalNumberOfLikesInt = parseInt(this.totalLikes);
 
         if (el.classList.contains('liked')) {
           let likesInt = parseInt(el.previousElementSibling.innerHTML);
@@ -234,9 +267,9 @@ class PhotographerPage {
   }
 
   showFilterOptions() {
-    this.dropdownContent.classList.toggle('hide');
+    // if classlist of dropDowncontent contains 'open' then close it
     this.dropdown.classList.toggle('open');
-
+    this.dropdownContent.classList.toggle('hide');
     //ACCESSIBILITY
     if (this.dropdownContent.classList.contains('hide')) {
       this.dropdownBtn.setAttribute('aria-expanded', false);
@@ -245,6 +278,20 @@ class PhotographerPage {
     }
   }
 
+  handleClickOnFilterOption(element) {
+    element.addEventListener('click', (e) => {
+      const fromVal = this.dropdownBtn.children[0].innerHTML;
+      const toVal = e.target.innerHTML;
+
+      this.dropdownBtn.children[0].innerHTML = toVal;
+      e.target.innerHTML = fromVal;
+
+      this.fetchPhotographer(this.dropdownBtn.children[0].innerHTML);
+
+      this.dropdown.classList.remove('open');
+      this.dropdownContent.classList.add('hide');
+    });
+  }
   showActive(tag) {
     //Select the element who have id tag
     let activeElement = document.getElementById(tag);
@@ -266,7 +313,6 @@ class PhotographerPage {
       this.ScrollToTopBtn.style.display = 'none';
     }
   }
-
   // create a function to scroll to the top of the page
   scrollToTop() {
     window.scrollTo(0, 0);
@@ -278,12 +324,16 @@ class PhotographerPage {
 const photographerPage = new PhotographerPage();
 
 window.onload = () => {
-  photographerPage.fetchPhotographer();
+  photographerPage.fetchPhotographer('Popularité');
   photographerPage.contactModal.validator.initialize();
 };
 
 photographerPage.dropdownBtn.addEventListener('click', () => {
   photographerPage.showFilterOptions();
+});
+
+photographerPage.dropdownContent.querySelectorAll('li').forEach((li) => {
+  photographerPage.handleClickOnFilterOption(li);
 });
 
 photographerPage.closeBtns.forEach((closeBtn) => {
